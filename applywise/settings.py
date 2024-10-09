@@ -30,7 +30,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.8000-cimustafa-applywise-8y40e6k5n32.ws.codeinstitute-ide.net",
 ]
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-cimustafa-applywise-8y40e6k5n32.ws.codeinstitute-ide.net'
@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     'applyhub',
 ]
 
