@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+{% if applications %}
+{% for app in applications %}
+{{ app.position }}
+{% endfor %}
+{% else %}
+{{ no_application_message }}
+{% endif %}
+{% endif %}
+{% endblock %}
