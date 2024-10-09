@@ -29,12 +29,14 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.8000-cimustafa-applywise-8y40e6k5n32.ws.codeinstitute-ide.net",
+    "https://*.herokuapp.com"
 ]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '8000-cimustafa-applywise-8y40e6k5n32.ws.codeinstitute-ide.net'
+    '8000-cimustafa-applywise-8y40e6k5n32.ws.codeinstitute-ide.net',
+    ".herokuapp.com",
 ]
 
 
