@@ -1,4 +1,5 @@
 {% load static %}
+{% url 'home' as home_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -49,6 +50,10 @@
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == about_url %}active" aria-current="page{% endif %}"
                             href="#">About</a>
+                    </li>
+                    <li class="nav-item"></li>
+                        <a class="nav-link {% if request.path == contact_url %}active" aria-current="page{% endif %}"
+                            href="#">Contact</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
