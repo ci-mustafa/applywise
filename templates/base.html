@@ -28,7 +28,7 @@
 <body class="d-flex flex-column h-100 main-bg">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}"><span class="brand ap">Apply</span><span
                     class="brand wi">Wise</span></a>
@@ -67,9 +67,11 @@
                     {% endif %}
 
                 </ul>
-                <span class="navbar-text text-muted">
-                    Track Your Career Journey with Confidence
-                </span>
+                <!-- Search Form -->
+            <form class="d-flex" action="#" method="GET">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query">
+                <button class="btn btn-outline-warning" type="submit">Search</button>
+            </form>
             </div>
         </div>
     </nav>
@@ -100,10 +102,10 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer mt-auto py-3 dark-bg">
+    <footer class="footer mt-auto py-3">
         <p class="m-0 text-center text-white">
             {% block copyright %}
-            Made by Code Instituters
+            &copy; 2024 - ApplyWise
             {% endblock copyright %}
         </p>
         <p class="m-0 text-center text-white">Follow us: <i class="fab fa-facebook-square ms-3"></i>
@@ -116,8 +118,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
         </script>
-    {% block extras %}
-    {% endblock %}
 </body>
 
 </html>

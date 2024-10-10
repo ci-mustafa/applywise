@@ -1,0 +1,25 @@
+/* Apply box-sizing: border-box globally to make elements flexible */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #172d13;
+}
+
+.navbar {
+    background-color: #428851;
+
+}
+
+.navbar .nav-link, 
+.navbar .navbar-brand, .navbar-text {
+    color: white !important;
+}
+
+.footer {
+    background-color: #428851;
+}
+

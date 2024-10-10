@@ -1,6 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="container">
+<div class="applied_analyze">
+    <div class="applied"></div>
+    <div class="interview"></div>
+    <div class="offer"></div>
+    <div class="rejected"></div>
+</div>
 {% if user.is_authenticated %}
 {% if applications %}
 {% for app in applications %}
@@ -10,4 +17,5 @@
 {{ no_application_message }}
 {% endif %}
 {% endif %}
+</div>
 {% endblock %}
