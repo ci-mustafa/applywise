@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% url 'create-application' as create_application_url %}
 {% block content %}
 <div class="container">
     {% if user.is_authenticated %}
@@ -10,7 +10,7 @@
         <div class="rejected">Rejected Apps <span class="apps-count">{{ rejected_apps_count }}</span></div>
         <div class="total_apps">Total Apps <span class="apps-count">{{ application_count }}</span></div>
         <div class="new-app">
-            <button class="btn btn-custom" type="submit">New app</button>
+            <a href="{% url 'create-application' %}" class="btn btn-custom">New App</a>
         </div>
     </div>
     {% endif %}

@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from . import models
+from . import forms
 
 # application list view
 def application_list(request):
@@ -51,4 +53,50 @@ def application_list(request):
                                           "offered_apps_count": offered_apps_count,
                                           "rejected_apps_count": rejected_apps_count,
                                           "applied_apps_count": applied_apps_count})
+
+# Application creation view
+def create_application(request):
+    """View to handle the creation of a new application.
+
+    This view allows authenticated users to create a new job application.
+    If the request method is POST, it validates the submitted form data.
+    Upon successful validation, it saves the new application to the database,
+    associating it with the logged-in user. If the request method is GET,
+    a blank application form is displayed.
+
+    Parameters:
+    request (HttpRequest): The HTTP request object containing metadata about the request.
+
+    Returns:
+    HttpResponse: Redirects to the home page upon successful form submission,
+                  or renders the application creation form if the user is authenticated.
+                  If the user is not authenticated, it redirects to the login page.
+    """
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            application_form = forms.CreateAppForm(data=request.POST)
+            if application_form.is_valid():
+                # Create a new application instance but don't save it yet
+                application = application_form.save(commit=False)
+                
+                # Associate the application with the logged-in user
+                application.applicant = request.user  # Assuming you have an applicant field in your model
+                
+                # Save the application to the database
+                application.save()
+
+                # Redirect to a success page or back to the application list
+                messages.add_message(request, messages.SUCCESS, 
+                message=f"Dear {request.user.username}, Your application successfuly created")
+                return redirect('home')  
+
+        else:
+            application_form = forms.CreateAppForm()  # Create a blank form for GET request
+
+        return render(request, 'create_app.html', {
+            'application_form': application_form
+        })
+
+    else:
+        return redirect('account_login')  # Redirect to login if the user is not authenticated
 
