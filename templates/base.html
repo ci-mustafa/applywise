@@ -52,8 +52,8 @@
                             href="#">About</a>
                     </li>
                     <li class="nav-item"></li>
-                        <a class="nav-link {% if request.path == contact_url %}active" aria-current="page{% endif %}"
-                            href="#">Contact</a>
+                    <a class="nav-link {% if request.path == contact_url %}active" aria-current="page{% endif %}"
+                        href="#">Contact</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
@@ -68,10 +68,11 @@
 
                 </ul>
                 <!-- Search Form -->
-            <form class="d-flex" action="#" method="GET">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query">
-                <button class="btn btn-custom" type="submit">Search</button>
-            </form>
+                <form class="d-flex" action="#" method="GET">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                        name="query">
+                    <button class="btn btn-custom" type="submit">Search</button>
+                </form>
             </div>
         </div>
     </nav>
@@ -109,9 +110,6 @@
             {% endblock copyright %}
         </p>
         <p class="m-0 text-center text-white">Follow us: <i class="fab fa-facebook-square ms-3"></i>
-            <i class="fab fa-twitter-square ms-3"></i>
-            <i class="fab fa-instagram-square ms-3"></i>
-            <i class="fab fa-youtube-square ms-3"></i>
         </p>
     </footer>
 

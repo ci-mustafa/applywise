@@ -21,9 +21,8 @@ body {
     color: white !important;
 }
 
-
-.footer {
-    background-color: #428851;
+.app-list {
+    color: white;
 }
 
 
@@ -31,11 +30,20 @@ body {
 .interview,
 .offer,
 .rejected,
+.total_apps,
 .new-app {
     background-color: #6bb77b;
+    color: white;
 }
 
+.card {
+    background-color: #6bb77b;
+    color: white;
+}
 
+.footer {
+    background-color: #428851;
+}
 /* search button */
 .btn-custom {
     border: 1px solid white;
@@ -44,7 +52,7 @@ body {
 }
 
 .btn-custom:hover {
-    background-color: white;
+    background-color: rgb(223, 127, 2);
 }
 
 
@@ -53,18 +61,22 @@ body {
     display: flex;
     justify-content: space-between;
     border-radius: 20px;
-    width: 50%;
+    margin-bottom: 20px;
 }
 
 .applied,
 .interview,
 .offer,
 .rejected,
+.total_apps,
 .new-app {
-    flex: 0 0 20%;
     padding: 20px;
     margin: 10px;
     text-align: center;
     border-radius: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.apps-count {
+    display: block;
 }

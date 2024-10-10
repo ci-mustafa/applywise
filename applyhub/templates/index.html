@@ -2,24 +2,35 @@
 
 {% block content %}
 <div class="container">
-<div class="applied_analyze">
-    <div class="applied"></div>
-    <div class="interview"></div>
-    <div class="offer"></div>
-    <div class="rejected"></div>
-    <div class="new-app">
-        <button class="btn btn-custom" type="submit">New app</button>
+    <div class="applied_analyze">
+        <div class="applied">Applied Apps <span class="apps-count">{{ applied_apps_count }}</span></div>
+        <div class="interview">Interview Apps <span class="apps-count">{{ interview_apps_count }}</span></div>
+        <div class="offer">Offered Apps <span class="apps-count">{{ offered_apps_count }}</span></div>
+        <div class="rejected">Rejected Apps <span class="apps-count">{{ rejected_apps_count }}</span></div>
+        <div class="total_apps">Total Apps <span class="apps-count">{{ application_count }}</span></div>
+        <div class="new-app">
+            <button class="btn btn-custom" type="submit">New app</button>
+        </div>
     </div>
-</div>
-
-{% if user.is_authenticated %}
-{% if applications %}
-{% for app in applications %}
-{{ app.position }}
-{% endfor %}
-{% else %}
-{{ no_application_message }}
-{% endif %}
-{% endif %}
+    <div class="app-list">
+        {% if user.is_authenticated %}
+        {% if applications %}
+        {% for app in applications %}
+        <div class="card">
+            <h5 class="card-header"><strong>{{ app.position | title }}</strong></h5>
+            <div class="card-body">
+                <h5 class="card-title">Position Level: <em>{{ app.position_level }}</em></h5>
+                <h5 class="card-title">Date Applied: <em>{{ app.date_applied }}</em></h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-custom">Job Details</a>
+            </div>
+        </div>
+        <hr>
+        {% endfor %}
+        {% else %}
+        {{ no_application_message }}
+        {% endif %}
+        {% endif %}
+    </div>
 </div>
 {% endblock %}
