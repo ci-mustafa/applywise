@@ -1,0 +1,82 @@
+/* Apply box-sizing: border-box globally to make elements flexible */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* colors */
+body {
+    background-color: #172d13;
+}
+
+.navbar {
+    background-color: #428851;
+
+}
+
+.navbar .nav-link,
+.navbar .navbar-brand,
+.navbar-text {
+    color: white !important;
+}
+
+.app-list {
+    color: white;
+}
+
+
+.applied,
+.interview,
+.offer,
+.rejected,
+.total_apps,
+.new-app {
+    background-color: #6bb77b;
+    color: white;
+}
+
+.card {
+    background-color: #6bb77b;
+    color: white;
+}
+
+.footer {
+    background-color: #428851;
+}
+/* search button */
+.btn-custom {
+    border: 1px solid white;
+    color: white;
+    background-color: transparent;
+}
+
+.btn-custom:hover {
+    background-color: rgb(223, 127, 2);
+}
+
+
+/* apply informations divs */
+.applied_analyze {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.applied,
+.interview,
+.offer,
+.rejected,
+.total_apps,
+.new-app {
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.apps-count {
+    display: block;
+}
