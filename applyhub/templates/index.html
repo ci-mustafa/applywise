@@ -2,6 +2,7 @@
 
 {% block content %}
 <div class="container">
+    {% if user.is_authenticated %}
     <div class="applied_analyze">
         <div class="applied">Applied Apps <span class="apps-count">{{ applied_apps_count }}</span></div>
         <div class="interview">Interview Apps <span class="apps-count">{{ interview_apps_count }}</span></div>
@@ -12,6 +13,7 @@
             <button class="btn btn-custom" type="submit">New app</button>
         </div>
     </div>
+    {% endif %}
     <div class="app-list">
         {% if user.is_authenticated %}
         {% if applications %}
