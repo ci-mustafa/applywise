@@ -23,3 +23,16 @@ body {
     background-color: #428851;
 }
 
+
+/* search button */
+
+.btn-custom {
+    border: 1px solid white;
+    color: white;
+    background-color: transparent;
+}
+
+.btn-custom:hover {
+    background-color: white;
+}
+
