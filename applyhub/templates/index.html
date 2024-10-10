@@ -7,7 +7,11 @@
     <div class="interview"></div>
     <div class="offer"></div>
     <div class="rejected"></div>
+    <div class="new-app">
+        <button class="btn btn-custom" type="submit">New app</button>
+    </div>
 </div>
+
 {% if user.is_authenticated %}
 {% if applications %}
 {% for app in applications %}

@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 
+/* colors */
 body {
     background-color: #172d13;
 }
@@ -14,18 +15,28 @@ body {
 
 }
 
-.navbar .nav-link, 
-.navbar .navbar-brand, .navbar-text {
+.navbar .nav-link,
+.navbar .navbar-brand,
+.navbar-text {
     color: white !important;
 }
+
 
 .footer {
     background-color: #428851;
 }
 
 
-/* search button */
+.applied,
+.interview,
+.offer,
+.rejected,
+.new-app {
+    background-color: #6bb77b;
+}
 
+
+/* search button */
 .btn-custom {
     border: 1px solid white;
     color: white;
@@ -36,3 +47,24 @@ body {
     background-color: white;
 }
 
+
+/* apply informations divs */
+.applied_analyze {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+    width: 50%;
+}
+
+.applied,
+.interview,
+.offer,
+.rejected,
+.new-app {
+    flex: 0 0 20%;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
