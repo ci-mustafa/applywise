@@ -6,6 +6,13 @@ def application_list(request):
     # Initialize applications to an empty list by default
     applications = []
 
+    # Initialize counts with default values
+    application_count = 0
+    applied_apps_count = 0
+    interview_apps_count = 0
+    offered_apps_count = 0
+    rejected_apps_count = 0
+
     no_application_message = "Currently, there are no applications recorded under your profile."
 
     # Check if the user is authenticated
