@@ -3,6 +3,27 @@ from . import models
 
 # application list view
 def application_list(request):
+    """
+    Handles the application list view for authenticated users.
+
+    This view retrieves and displays the list of applications submitted by the authenticated user.
+    If the user is not authenticated, an empty list of applications is returned, along with a 
+    message indicating that no applications are recorded. It also calculates the counts of 
+    different application statuses, including 'applied', 'interview', 'offer', and 'rejected'.
+
+    Args:
+        request (HttpRequest): The HTTP request object containing metadata about the request.
+
+    Returns:
+        HttpResponse: Renders the 'index.html' template with the following context:
+            - applications: List of application objects associated with the user.
+            - no_application_message: A message indicating no applications if the user has none.
+            - application_count: Total count of applications submitted by the user.
+            - applied_apps_count: Count of applications with status 'applied'.
+            - interview_apps_count: Count of applications with status 'interview'.
+            - offered_apps_count: Count of applications with status 'offer'.
+            - rejected_apps_count: Count of applications with status 'rejected'.
+    """
     # Initialize applications to an empty list by default
     applications = []
 
