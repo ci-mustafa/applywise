@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 <div class="container">
     <h1>Create Application</h1>
@@ -8,9 +8,9 @@
         {% csrf_token %}
         {{ application_form.as_p }}  <!-- This will render the form fields -->
 
-        <button type="submit" class="btn btn-primary">Submit Application</button>
+        <button type="submit" class="btn btn-custom">Submit Application</button>
     </form>
-
+    <br>
     {% if messages %}
         <ul>
             {% for message in messages %}

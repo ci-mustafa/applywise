@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <div class="container">
@@ -16,5 +17,34 @@
         <li>{{application.follow_up_date}}</li>
         <li>{{application.created_on}}</li>
     </ul>
+    <div>
+        <a href="{% url 'edit-application' pk=application.id slug=application.slug %}" class="btn btn-custom">Edit
+            App</a>
+        <!-- Button trigger delete modal -->
+        <button type="button" class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Delete App
+        </button>
+    </div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Confirm Deletion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this application? This action cannot be undone.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">No</button>
+                <a href="#" id='delete-button' class="btn btn-danger"
+                    data-url="{% url 'delete-application' pk=application.id slug=application.slug %}">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/delete-confirmation.js' %}"></script>
 {% endblock %}

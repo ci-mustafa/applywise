@@ -39,6 +39,7 @@ def application_list(request):
 
     no_application_message = "Currently, there are no applications recorded under your profile."
 
+    
     # Check if the user is authenticated
     if request.user.is_authenticated:
         applications = models.Application.objects.filter(applicant=request.user)
