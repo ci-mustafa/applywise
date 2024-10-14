@@ -2,21 +2,19 @@
 
 {% block content %}
 <div class="container">
-    <h1>Update Application</h1>
-    
-    <form method="POST" action="{% url 'application-details' pk=application.id slug=application.slug%}">
-        {% csrf_token %}
-        {{ application_form.as_p }}  <!-- This will render the form fields -->
-
-        <button type="submit" class="btn btn-custom">Edit Application</button>
-    </form>
-
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+    <h1>Application Details</h1>
+    <ul>
+        <li>{{application.position}}</li>
+        <li>{{application.description}}</li>
+        <li>{{application.position_level}}</li>
+        <li>{{application.company_name}}</li>
+        <li>{{application.date_applied}}</li>
+        <li>{{application.status}}</li>
+        <li>{{application.applied_method}}</li>
+        <li>{{application.job_link}}</li>
+        <li>{{application.recruiter_contact}}</li>
+        <li>{{application.follow_up_date}}</li>
+        <li>{{application.created_on}}</li>
+    </ul>
 </div>
 {% endblock %}

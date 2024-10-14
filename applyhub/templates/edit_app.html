@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Update Application</h1>
+    
+    <form method="POST" action="{% url 'edit-application' pk=application.id slug=application.slug%}">
+        {% csrf_token %}
+        {{ application_form.as_p }}  <!-- This will render the form fields -->
+
+        <button type="submit" class="btn btn-success">Edit Application</button>
+    </form>
+    <br>
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+{% endblock %}

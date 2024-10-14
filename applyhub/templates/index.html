@@ -25,6 +25,8 @@
                 <h5 class="card-title">Date Applied: <em>{{ app.date_applied }}</em></h5>
                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                 <a href="{% url 'application-details' pk=app.id slug=app.slug %}" class="btn btn-custom">Job Details</a>
+                <a href="{% url 'edit-application' pk=app.id slug=app.slug %}" class="btn btn-custom">Edit App</a>
+                <a href="{% url 'delete-application' pk=app.id slug=app.slug %}" class="btn btn-custom">Delete App</a>
             </div>
         </div>
         <br>

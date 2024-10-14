@@ -104,9 +104,9 @@ def create_application(request):
     else:
         return redirect('account_login')  # Redirect to login if the user is not authenticated
 
-from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib import messages
-from . import forms, models
+def application_details(request, pk, slug):
+    application = get_object_or_404(models.Application, pk=pk, slug=slug)
+    return render(request, "app_details.html", {"application" : application})
 
 def edit_application(request, pk, slug):
     """
@@ -151,11 +151,11 @@ def edit_application(request, pk, slug):
                 # Authomaticaly fill slug field based on position
                 application.slug = slugify(application.position)
 
-                
+
                 application_form.save()
                 
                 # Add a success message to notify the user
-                messages.success(request, "Your application has been successfully updated.")
+                messages.success(request, f"Dear {request.user}, Your application has been successfully updated.")
                 
                 # Redirect the user to the 'home' page (or any other appropriate page)
                 return redirect('home')
@@ -165,7 +165,7 @@ def edit_application(request, pk, slug):
             application_form = forms.CreateAppForm(instance=application)
 
         # Render the edit page with the prepopulated form
-        return render(request, 'app_details.html', {
+        return render(request, 'edit_app.html', {
             'application_form': application_form,
             'application': application
         })
@@ -175,3 +175,16 @@ def edit_application(request, pk, slug):
         return redirect('account_login')
 
 
+def delete_application(request, pk, slug):
+    application = get_object_or_404(models.Application, pk=pk, slug=slug)
+    if request.user.is_authenticated and application.applicant == request.user:
+        application.delete()
+        # Add a success message to notify the user
+        messages.success(request, f"Dear {request.user}, Your application has been successfully deleted.")
+                
+        # Redirect the user to the 'home' page (or any other appropriate page)
+        return redirect('home')
+
+    else:
+        # If the user is not authenticated or is not the owner of the application
+        return redirect('account_login')
