@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.utils.text import slugify
 from django.contrib import messages
 from . import models
 from . import forms
@@ -80,8 +81,11 @@ def create_application(request):
                 application = application_form.save(commit=False)
                 
                 # Associate the application with the logged-in user
-                application.applicant = request.user  # Assuming you have an applicant field in your model
-                
+                application.applicant = request.user  
+
+                # Authomaticaly fill slug field based on position
+                application.slug = slugify(application.position)
+
                 # Save the application to the database
                 application.save()
 
@@ -99,4 +103,75 @@ def create_application(request):
 
     else:
         return redirect('account_login')  # Redirect to login if the user is not authenticated
+
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from . import forms, models
+
+def edit_application(request, pk, slug):
+    """
+    View to handle editing an existing application.
+
+    This view allows authenticated users to edit their own application. The user must
+    be the owner of the application they are trying to edit. If the form is submitted
+    via POST, the application will be updated with the new data. If the request is GET,
+    the form will be prepopulated with the current application data.
+
+    Args:
+        request (HttpRequest): The HTTP request object, which contains metadata about the request.
+        pk (int): The primary key (ID) of the application that the user wants to edit.
+
+    Returns:
+        HttpResponse: 
+        - If the user is authenticated and is the owner of the application, it returns
+          a rendered HTML page with the prepopulated form for editing.
+        - If the form is valid (POST), the updated application is saved, and the user is redirected.
+        - If the user is not authenticated or is not the owner of the application, they
+          are redirected to the login page or any other appropriate error page.
+    
+    Raises:
+        Http404: If the application with the provided primary key does not exist.
+    """
+
+    # Fetch the application object by primary key (pk), or return 404 if not found
+    application = get_object_or_404(models.Application, pk=pk, slug=slug)
+
+    # Check if the logged-in user is the owner of the application
+    if request.user.is_authenticated and application.applicant == request.user:
+        
+        # If the request method is POST, process the form data for updating the application
+        if request.method == "POST":
+            # Create the form with the POST data and the instance (for editing)
+            application_form = forms.CreateAppForm(data=request.POST, instance=application)
+            
+            # Validate the form
+            if application_form.is_valid():
+                # Save the updated application to the database
+
+                # Authomaticaly fill slug field based on position
+                application.slug = slugify(application.position)
+
+                
+                application_form.save()
+                
+                # Add a success message to notify the user
+                messages.success(request, "Your application has been successfully updated.")
+                
+                # Redirect the user to the 'home' page (or any other appropriate page)
+                return redirect('home')
+
+        else:
+            # For a GET request, prepopulate the form with the existing application data
+            application_form = forms.CreateAppForm(instance=application)
+
+        # Render the edit page with the prepopulated form
+        return render(request, 'app_details.html', {
+            'application_form': application_form,
+            'application': application
+        })
+
+    else:
+        # If the user is not authenticated or is not the owner of the application
+        return redirect('account_login')
+
 
