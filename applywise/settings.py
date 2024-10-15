@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'cloudinary',
     'applyhub',
+    'myprofile',
 ]
 
 SITE_ID = 1

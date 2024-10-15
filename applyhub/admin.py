@@ -19,13 +19,4 @@ class ApplicationAdmin(admin.ModelAdmin):
     list_filter = ('status','created_on',)
     prepopulated_fields = {'slug': ('position',)}
 
-# Register ProfileImage model to admin site
-@admin.register(models.ProfileImage)
-class ProfileImageAdmin(admin.ModelAdmin):
-    """
-    Admin configuration for the ProfileImage model.
 
-    - Displays the image and associated user in the admin list view.
-    - Enables easy management of profile images directly from the Django admin interface.
-    """
-    list_display = ['image', 'user']
