@@ -55,6 +55,10 @@
                     <a class="nav-link {% if request.path == contact_url %}active" aria-current="page{% endif %}"
                         href="#">Contact</a>
                     </li>
+                    <li class="nav-item"></li>
+                    <a class="nav-link {% if request.path == profile_url %}active" aria-current="page{% endif %}"
+                        href="#">My Profile</a>
+                    </li>
                     {% else %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == signup_url %}active" aria-current="page{% endif %}"
