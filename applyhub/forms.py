@@ -11,3 +11,7 @@ class CreateAppForm(forms.ModelForm):
             "applied_method", "location", "job_link", 
             "recruiter_contact", "follow_up_date", 
         ]
+
+        widgets = {
+            'date_applied': forms.DateInput(attrs={'type': 'date'}),
+        }
