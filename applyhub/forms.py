@@ -15,3 +15,5 @@ class CreateAppForm(forms.ModelForm):
         widgets = {
             'date_applied': forms.DateInput(attrs={'type': 'date'}),
         }
+    
+    

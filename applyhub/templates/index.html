@@ -23,7 +23,7 @@
             <h5 class="card-header"><strong>{{ app.position | title }}</strong></h5>
             <div class="card-body">
                 <h5 class="card-title">Position Level: <em>{{ app.position_level }}</em></h5>
-                <h5 class="card-title">Date Applied: <em>{{ app.date_applied }}</em></h5>
+                <h5 class="card-title">Date Applied: <em>{{ app.date_applied|date:"d F Y" }}</em></h5>
                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                 <a href="{% url 'application-details' pk=app.id slug=app.slug %}" class="btn btn-custom">Job Details</a>
             </div>
