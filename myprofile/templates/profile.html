@@ -1,14 +1,49 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="container">
-    <h1>My Profile</h1>
-    <form method="POST" action="{% url 'profile' pk=request.user.id%}">
+<div class="container profile-container mt-4">
+    <h1 class="text-center mb-4">My Profile</h1>
+    <form method="POST" action="{% url 'profile' pk=request.user.id %}" enctype="multipart/form-data"
+        class="shadow p-4 form-inside">
         {% csrf_token %}
-        {{ profile_form.as_p }} <!-- This will render the form fields -->
 
-        <button type="submit" class="btn btn-success">Edit Profile</button>
+        <!-- Profile Image Upload -->
+        <div class="form-group">
+            <h5>Profile Image</h5>
+            <input type="file" id="fileInput" name="image" style="display: none;" onchange="updateFileName()">
+            <button type="button" class="btn btn-custom" onclick="document.getElementById('fileInput').click();">
+                Choose File
+            </button>
+            <span id="fileName" class="file-name">No file chosen</span>
+        </div>
+        <hr>
+        <!-- User Profile Information -->
+        <div class="form-group">
+            <h5>User Information</h5>
+            {{ profile_form.username }}
+            <br>
+            {{ profile_form.first_name }}
+            <br>
+            {{ profile_form.last_name }}
+            <br>
+            {{ profile_form.email }}
+            <br>
+            {{ profile_form.username.errors }}
+            {{ profile_form.first_name.errors }}
+            {{ profile_form.last_name.errors }}
+            {{ profile_form.email.errors }}
+        </div>
+
+        <button type="submit" class="btn btn-custom btn-block mt-3">Edit Profile</button>
     </form>
     <br>
 </div>
+<br>
+<script>
+    function updateFileName() {
+        const input = document.getElementById('fileInput');
+        const fileName = document.getElementById('fileName');
+        fileName.textContent = input.files.length > 0 ? input.files[0].name : 'No file chosen';
+    }
+</script>
 {% endblock %}
