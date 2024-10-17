@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h1>My Profile</h1>
+    <form method="POST" action="{% url 'profile' pk=request.user.id%}">
+        {% csrf_token %}
+        {{ profile_form.as_p }} <!-- This will render the form fields -->
+
+        <button type="submit" class="btn btn-success">Edit Profile</button>
+    </form>
+    <br>
+</div>
+{% endblock %}

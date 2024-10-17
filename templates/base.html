@@ -1,5 +1,6 @@
 {% load static %}
 {% url 'home' as home_url %}
+{% url 'profile' as profile_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -57,7 +58,7 @@
                     </li>
                     <li class="nav-item"></li>
                     <a class="nav-link {% if request.path == profile_url %}active" aria-current="page{% endif %}"
-                        href="#">My Profile</a>
+                        href="{% url 'profile' pk=request.user.id %}">My Profile</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
