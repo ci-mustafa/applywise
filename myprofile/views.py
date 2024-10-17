@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from . import forms
+from . import models
 
 def profile(request, pk):
     myprofile = get_object_or_404(User, pk=pk)
