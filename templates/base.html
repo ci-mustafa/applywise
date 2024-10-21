@@ -1,6 +1,7 @@
 {% load static %}
 {% url 'home' as home_url %}
 {% url 'profile' as profile_url %}
+{% url 'about' as about_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -48,10 +49,6 @@
                         <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}"
                             href="{% url 'account_logout' %}">Logout</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == about_url %}active" aria-current="page{% endif %}"
-                            href="#">About</a>
-                    </li>
                     <li class="nav-item"></li>
                     <a class="nav-link {% if request.path == contact_url %}active" aria-current="page{% endif %}"
                         href="#">Contact</a>
@@ -70,7 +67,10 @@
                             href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
-
+                    <li class="nav-item"></li>
+                        <a class="nav-link {% if request.path == about_url %}active" aria-current="page{% endif %}"
+                            href="{% url 'about' %}">About</a>
+                    </li>
                 </ul>
                 <!-- Search Form -->
                 {% if user.is_authenticated %}
@@ -83,6 +83,7 @@
             </div>
         </div>
     </nav>
+    <br>
     <!-- displaying Django messages -->
     <div class="container">
         <div class="row">

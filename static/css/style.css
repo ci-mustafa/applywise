@@ -139,11 +139,17 @@ h5 {
 }
 
 /* Custom styles for pagination */
-
 .pagination {
     display: flex;
     justify-content: center;
     padding: 10px 0; 
+}
+
+
+/* Custom styles for about page */
+
+.about-content {
+    text-align: left;
 }
 
 

@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("accounts/", include("allauth.urls")),
     path('', include('applyhub.urls'), name='applyhub-urls'),
-    path('', include("myprofile.urls"), name='myprofile-urls')
+    path('', include("myprofile.urls"), name='myprofile-urls'),
+    path('', include('about.urls'), name='about-urls'),
 ]
