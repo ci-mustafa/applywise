@@ -22,10 +22,18 @@
     {% endif %}
     {% if user.is_authenticated %}
     <div class="applied_analyze">
-        <div class="applied">Applied Apps <span class="apps-count">{{ applied_apps_count }}</span></div>
-        <div class="interview">Interview Apps <span class="apps-count">{{ interview_apps_count }}</span></div>
-        <div class="offer">Offered Apps <span class="apps-count">{{ offered_apps_count }}</span></div>
-        <div class="rejected">Rejected Apps <span class="apps-count">{{ rejected_apps_count }}</span></div>
+        <div class="applied">Applied Apps <span class="apps-count">{{ applied_apps_count }}</span>
+            <a href="{% url 'filter-applications' status='Applied' %}" class="show-interview btn btn-custom">Show</a>
+        </div>
+        <div class="interview">Interview Apps <span class="apps-count">{{ interview_apps_count }}</span>
+            <a href="{% url 'filter-applications' status='Interview' %}" class="show-interview btn btn-custom">Show</a>
+        </div>
+        <div class="offer">Offered Apps <span class="apps-count">{{ offered_apps_count }}</span>
+            <a href="{% url 'filter-applications' status='Offer' %}" class="show-interview btn btn-custom">Show</a>
+        </div>
+        <div class="rejected">Rejected Apps <span class="apps-count">{{ rejected_apps_count }}</span>
+            <a href="{% url 'filter-applications' status='Rejected' %}" class="show-interview btn btn-custom">Show</a>
+        </div>
         <div class="total_apps">Total Apps <span class="apps-count">{{ application_count }}</span></div>
         <div class="new-app">
             <a href="{% url 'create-application' %}" class="btn btn-custom">New App</a>

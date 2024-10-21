@@ -74,7 +74,7 @@
                 </ul>
                 <!-- Search Form -->
                 {% if user.is_authenticated %}
-                <form class="d-flex" action="{% url 'search_applications' %}" method="GET">
+                <form class="d-flex" action="{% url 'search-applications' %}" method="GET">
                     <input class="form-control me-2" type="search" placeholder="Search applications" aria-label="Search"
                         name="query" value="{{ query|default_if_none:'' }}">
                     <button class="btn btn-custom" type="submit">Search</button>

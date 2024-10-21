@@ -178,6 +178,35 @@ def edit_application(request, pk, slug):
 
 
 def delete_application(request, pk, slug):
+
+    """
+    View function to delete a specific job application for an authenticated user.
+
+    This view retrieves an application based on its primary key (pk), (Slug just shows the name of the 
+    application) ensuring that the application exists 
+    and belongs to the currently authenticated user. If condition is met, the application is deleted. 
+    If the user is not authenticated or does not own the application, they are redirected to the login page.
+
+    Args:
+        request (HttpRequest): The HTTP request object containing metadata about the request, including 
+                               the user data.
+        pk (int): The primary key of the application to be deleted.
+        slug (str): The slug of the application.
+
+    Returns:
+        HttpResponseRedirect: A redirection to the 'home' page if the application is successfully deleted 
+                              or to the login page if the user is not authenticated or authorized.
+
+    Raises:
+        Http404: If the application does not exist or cannot be found based on the provided `pk`.
+
+    Example:
+        - A user attempts to delete an application with a given primary key (pk). If they own the 
+          application and are logged in, it will be deleted, and they will be redirected to the homepage with a 
+          success message.
+        - If the user is not authenticated or does not own the application, they will be redirected to the 
+          login page.
+    """
     application = get_object_or_404(models.Application, pk=pk, slug=slug)
     if request.user.is_authenticated and application.applicant == request.user:
         application.delete()
@@ -193,6 +222,31 @@ def delete_application(request, pk, slug):
 
 
 def search_applications(request):
+
+    """
+    View function to search applications based on a query input from the user.
+
+    This view retrieves all applications for the current authenticated user, and if a query is provided,
+    it filters the applications by matching the search term against several fields: `position`, `position_level`, 
+    `status`, or `company_name`. The filtered results are then rendered in the 'search.html' template.
+
+    Args:
+        request (HttpRequest): The HTTP request object containing metadata about the request, including
+                               the GET parameters with the search term (query) and the user information.
+
+    Returns:
+        HttpResponse: The rendered 'search.html' page displaying the filtered list of applications that match
+                      the search criteria for the logged-in user.
+
+    Template:
+        search.html: A template that displays the search results for the applications.
+
+    Example:
+        - A user searches for "Junior" in the search form. The search will return all applications where the 
+          `position`, `position_level`, `status`, or `company_name` contains the term "Junior".
+        - If no query is provided, it returns all applications for the current user.
+    """
+
     query = request.GET.get('query', '')  # Get the search term from the input field
     filtered_applications = models.Application.objects.filter(applicant=request.user)
 
@@ -206,3 +260,33 @@ def search_applications(request):
         )
 
     return render(request, 'search.html', {'applications': filtered_applications, 'query': query})
+
+
+def filter_interview_apps(request, status):
+
+    """
+    View function to filter applications based on their status and the current logged-in user.
+
+    This view retrieves applications for the current authenticated user, filtering them by the 
+    specified status (e.g.,'Applied', 'Interview', 'Offered', 'Rejected'). The results are displayed on the 
+    'filter.html' template.
+
+    Args:
+        request (HttpRequest): The HTTP request object, which contains metadata about the request,
+                               including user information.
+        status (str): The status of the applications to filter by (e.g.,'Applied', 'Interview', 'Offered', 'Rejected').
+
+    Returns:
+        HttpResponse: The rendered 'filter.html' page displaying the filtered list of applications for the user,
+                      along with the selected status.
+
+    Template:
+        filter.html: A template that displays a list of applications filtered by the selected status.
+
+    Example:
+        - URL to trigger this view: /applications/filter/Interview/
+        - It will show all applications where the status is 'Interview' for the logged-in user.
+    """
+    apps = models.Application.objects.filter(applicant=request.user, status=status)
+    return render(request, 'filter.html', {'apps': apps,
+                                           'status': status})
