@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.text import slugify
+from django.db.models import Q
 from django.contrib import messages
 from . import models
 from . import forms
@@ -189,3 +190,19 @@ def delete_application(request, pk, slug):
     else:
         # If the user is not authenticated or is not the owner of the application
         return redirect('account_login')
+
+
+def search_applications(request):
+    query = request.GET.get('query', '')  # Get the search term from the input field
+    filtered_applications = models.Application.objects.filter(applicant=request.user)
+
+    if query:
+        # Filter by `position`, `position_level`, `status`, or `company_name`
+        filtered_applications = filtered_applications.filter(
+            Q(position__icontains=query) |
+            Q(position_level__icontains=query) |
+            Q(status__icontains=query) |
+            Q(company_name__icontains=query)
+        )
+
+    return render(request, 'search.html', {'applications': filtered_applications, 'query': query})
