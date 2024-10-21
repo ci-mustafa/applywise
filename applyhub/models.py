@@ -62,7 +62,7 @@ class Application(models.Model):
     # Fields
     position = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
-    slug = models.SlugField(max_length=255, unique=True, null=True, blank=True)
+    slug = models.SlugField(max_length=255, null=True, blank=True)
     position_level = models.CharField(max_length=10, choices=POSITION_LEVEL_CHOICES, default="Junior")
     company_name = models.CharField(max_length=255)
     date_applied = models.DateField()
