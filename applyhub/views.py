@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils.text import slugify
 from django.db.models import Q
 from django.contrib import messages
@@ -44,11 +45,26 @@ def application_list(request):
     # Check if the user is authenticated
     if request.user.is_authenticated:
         applications = models.Application.objects.filter(applicant=request.user)
+
+
+        # Calculate the total application count
         application_count = applications.count()
+
         applied_apps_count = applications.filter(status="applied".capitalize()).count()
         interview_apps_count = applications.filter(status="interview".capitalize()).count()
         offered_apps_count = applications.filter(status="offer".capitalize()).count()
         rejected_apps_count = applications.filter(status="rejected".capitalize()).count()
+
+        # Pagination
+        paginator = Paginator(applications, 5)  # Show 5 applications per page
+        page_number = request.GET.get('page')  # Get the page number from the request
+        try:
+            applications = paginator.get_page(page_number)
+        except PageNotAnInteger:
+            applications = paginator.get_page(1)  # If page is not an integer, return the first page
+        except EmptyPage:
+            applications = paginator.get_page(paginator.num_pages)  # If page is out of range, return the last page
+            
     return render(request, 'index.html', {"applications": applications,
                                           "no_application_message": no_application_message,
                                           "application_count": application_count,

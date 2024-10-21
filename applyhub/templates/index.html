@@ -55,6 +55,26 @@
         </div>
         <br>
         {% endfor %}
+        <!-- Pagination Controls -->
+        <nav class="pagination" aria-label="Page navigation">
+            <span class="step-links">
+                {% if applications.has_previous %}
+                <a class="btn btn-custom" href="?page=1">&laquo; first</a>
+                <a class="btn btn-custom" href="?page={{ applications.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ applications.number }} of {{ applications.paginator.num_pages }}
+                </span>
+
+                {% if applications.has_next %}
+                <a class="btn btn-custom" href="?page={{ applications.next_page_number }}">next</a>
+                <a class="btn btn-custom" href="?page={{ applications.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </nav>
+
+        <br>
         {% else %}
         {{ no_application_message }}
         {% endif %}
