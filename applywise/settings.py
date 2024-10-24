@@ -33,7 +33,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.herokuapp.com"
 ]
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-cimustafa-applywise-8y40e6k5n32.ws.codeinstitute-ide.net',
@@ -60,12 +60,13 @@ INSTALLED_APPS = [
     'cloudinary',
     'applyhub',
     'myprofile',
-    'about'
+    'about',
+    'contact',
 ]
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
