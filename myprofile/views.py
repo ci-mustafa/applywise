@@ -31,7 +31,7 @@ def profile(request, pk):
     """
     myprofile = get_object_or_404(User, pk=pk)
     profile_image_instance = myprofile.image.first()  # Get the user's profile image
-    if request.user.is_authenticated:
+    if request.user.is_authenticated and request.user == myprofile:
         if request.method == 'POST':
             # Initialize forms with request data
             profile_form = forms.ProfileForm(data=request.POST, instance=myprofile)
@@ -68,7 +68,8 @@ def profile(request, pk):
         })
     else:
         # Redirects to the login page if the user is not authenticated
-        return redirect('login')
+        messages.success(request, f"Permission Denied: You can only access your own profile.")
+        return redirect('account_login')
 
 
 
