@@ -3,6 +3,13 @@ from . import models
 
 # contact form
 class ContactForm(forms.ModelForm):
+    """
+    A form for submitting contact information, including name, email, and message.
+
+    This form is based on the Contact model and includes custom widgets for each 
+    field with placeholders and Bootstrap form-control classes. The field labels are 
+    set to empty strings for a cleaner form appearance.
+    """
     class Meta:
         model = models.Contact
         fields = ['name', 'email', 'message']
