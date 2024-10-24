@@ -1,4 +1,27 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
 
 {% block content %}
+<div class="container mt-5">
+    <!-- Centering the form -->
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>We’d Love to Hear from You!</h1>
+            <p>Have a question, feedback, or just want to get in touch? Fill out the form below, and we’ll get back to
+                you
+                as
+                soon as possible. Whether you need assistance or have suggestions, we’re here to help.</p>
+            <p>Looking forward to connecting with you!</p>
+            <form id="contact-form" method="POST">
+                {% csrf_token %}
+                {{ contact_form|crispy }}
+                <button type="submit" class="btn btn-custom">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+
+<br>
 {% endblock %}
