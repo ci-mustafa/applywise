@@ -19,10 +19,11 @@ p {
 
 }
 
+
 .navbar .nav-link,
 .navbar .navbar-brand,
-.navbar-text{
-    color: white !important;
+.navbar-text {
+    color: white ;
 }
 
 .app-list {
@@ -48,6 +49,8 @@ p {
 .footer {
     background-color: #428851;
 }
+
+
 /* search button */
 .btn-custom {
     border: 1px solid white;
@@ -90,9 +93,9 @@ p {
     max-width: 600px;
     margin: auto;
     padding: 20px;
-    border-radius: 0.25rem; 
-    background-color: #6bb77b; 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 0.25rem;
+    background-color: #6bb77b;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     color: white;
 }
 
@@ -100,41 +103,44 @@ p {
     background-color: #172d13;
 }
 
-h1, h3 {
-    color: white; /* Dark color for the heading */
+h1,
+h3 {
+    color: white;
+    /* Dark color for the heading */
 }
 
 h5 {
-    margin-bottom: 15px; /* Space below section headings */
+    margin-bottom: 15px;
+    /* Space below section headings */
 }
 
 .custom-input {
-    background-color: #333;  
-    color: white;             
-    border-radius: 5px;      
-    border: 1px solid #555;  
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid #555;
 }
 
 /* Custom styles for the search page */
 
 .search-container {
-    max-width: 600px; 
-    margin: auto; 
+    max-width: 600px;
+    margin: auto;
     padding: 20px;
-    border-radius: 0.25rem; 
+    border-radius: 0.25rem;
     background-color: #6bb77b;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     color: white;
 }
 
 /* Custom styles for the filter page */
 .filter-container {
-    max-width: 600px; 
+    max-width: 600px;
     margin: auto;
-    padding: 20px; 
+    padding: 20px;
     border-radius: 0.25rem;
-    background-color: #6bb77b; 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    background-color: #6bb77b;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     color: white;
 }
 
@@ -142,19 +148,69 @@ h5 {
 .pagination {
     display: flex;
     justify-content: center;
-    padding: 10px 0; 
+    padding: 10px 0;
 }
 
 /* Custom styles for contact form */
 #contact-form {
-    padding: 20px; 
-    border: 1px solid #ccc; 
-    border-radius: 5px; 
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     background-color: #6bb77b;
 }
 
+/* Media Query for tablets (max-width: 768px) and mobile devices (max-width: 576px) */
+@media (max-width: 768px) {
+    /* Adjust navbar links and brand for better spacing */
+    .navbar .nav-link, .navbar .navbar-brand {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+    /* Center and resize cards for smaller screens */
+    .applied, .interview, .offer, .rejected, .total_apps, .new-app {
+        padding: 15px;
+        font-size: 0.85rem;
+    }
+    /* Reduce padding in profile and other main containers */
+    .profile-container, .search-container, .filter-container, #contact-form {
+        padding: 15px;
+        margin: 10px;
+    }
+    .profile-container h1, .search-container h1, .filter-container h1 {
+        font-size: 1.5rem;
+    }
+    /* Resize buttons */
+    .btn-custom {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+    /* Pagination adjustments */
+    .pagination {
+        flex-direction: column;
+        padding: 5px 0;
+    }
+}
 
-
-
-
-
+@media (max-width: 576px) {
+    /* Stack navbar brand and toggler */
+    .navbar .navbar-brand {
+        font-size: 1.2rem;
+    }
+    /* Adjust profile image size */
+    .profile-picture img {
+        width: 80px;
+        height: 80px;
+    }
+    /* Reduce padding and font sizes further */
+    .applied_analyze, .applied, .interview, .offer, .rejected, .total_apps, .new-app {
+        padding: 10px;
+        font-size: 0.75rem;
+    }
+    .profile-container, .search-container, .filter-container, #contact-form {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    h1, h3 {
+        font-size: 1.3rem;
+    }
+}

@@ -23,6 +23,9 @@
     <br>
     {% if user.is_authenticated %}
     <div class="applied_analyze">
+        <div class="new-app">
+            <a href="{% url 'create-application' %}" class="btn btn-custom btn-new-app">New App</a>
+        </div>
         <div class="applied">Applied Apps <span class="apps-count">{{ applied_apps_count }}</span>
             <a href="{% url 'filter-applications' status='Applied' %}" class="show-interview btn btn-custom">Show</a>
         </div>
@@ -35,10 +38,7 @@
         <div class="rejected">Rejected Apps <span class="apps-count">{{ rejected_apps_count }}</span>
             <a href="{% url 'filter-applications' status='Rejected' %}" class="show-interview btn btn-custom">Show</a>
         </div>
-        <div class="total_apps">Total Apps <span class="apps-count">{{ application_count }}</span></div>
-        <div class="new-app">
-            <a href="{% url 'create-application' %}" class="btn btn-custom">New App</a>
-        </div>
+        <div class="total_apps">Total Apps <span class="apps-count total-apps-result">{{ application_count }}</span></div>
     </div>
     {% endif %}
     <div class="app-list">
