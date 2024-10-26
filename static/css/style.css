@@ -44,10 +44,25 @@ p {
 }
 
 .nav-link:hover {
-    color: #181817; /* Hover color */
-    text-decoration: underline; /* Add underline on hover */
+    color: #181817;
+    /* Hover color */
+    text-decoration: underline;
+    /* Add underline on hover */
 }
 
+.ap,
+.wi {
+    font-family: "Gugi", sans-serif;
+    
+}
+
+.ap {
+    color: white;
+}
+
+.wi {
+    color: #181817;
+}
 
 /* Main Layout */
 .app-list {
@@ -125,6 +140,7 @@ p {
     font-size: larger;
     font-weight: bold;
 }
+
 /* Custom Buttons */
 .btn-custom {
     border: 1px solid white;
@@ -193,11 +209,13 @@ h5 {
 /* Responsive Styles */
 /* Tablet: Medium screens (max-width: 768px) */
 @media (max-width: 768px) {
+
     .navbar .nav-link,
     .navbar .navbar-brand {
         font-size: 0.9rem;
         padding: 0.5rem;
     }
+
     .applied_analyze,
     .profile-container,
     .search-container,
@@ -205,6 +223,7 @@ h5 {
         padding: 10px;
         margin: 10px;
     }
+
     .btn-custom {
         font-size: 0.85rem;
     }
@@ -212,10 +231,12 @@ h5 {
 
 /* Mobile: Small screens (max-width: 576px) */
 @media (max-width: 576px) {
+
     /* Navbar Adjustments */
     .navbar .navbar-brand {
         font-size: 1.2rem;
     }
+
     .navbar .nav-link {
         font-size: 0.8rem;
     }
@@ -230,6 +251,7 @@ h5 {
     .filter-container h1 {
         font-size: 1.4rem;
     }
+
     .applied,
     .interview,
     .offer,
