@@ -1,4 +1,4 @@
-/* Apply box-sizing: border-box globally to make elements flexible */
+/* Apply box-sizing: border-box globally */
 *,
 *::before,
 *::after {
@@ -8,28 +8,68 @@
 /* colors */
 body {
     background-color: #172d13;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 p {
     color: white;
+    margin: 0;
 }
 
+/* Navbar */
 .navbar {
     background-color: #428851;
-
+    font-family: 'lato', sans-serif;
+    font-weight: bold;
+    padding: 1rem;
 }
 
+.navbar .navbar-brand {
+    font-size: 1.5rem;
+}
 
 .navbar .nav-link,
-.navbar .navbar-brand,
-.navbar-text {
-    color: white ;
-}
-
-.app-list {
+.navbar .navbar-text {
     color: white;
 }
 
+.navbar-toggler {
+    color: white;
+    border: none;
+}
+
+.navbar .navbar-collapse {
+    flex-grow: 0;
+    text-align: center;
+}
+
+/* Main Layout */
+.app-list {
+    color: white;
+    margin-top: 20px;
+}
+
+/* Card Styles */
+.card {
+    background-color: #6bb77b;
+    color: white;
+    margin: 1rem 0;
+    padding: 1.25rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Applied Apps Section */
+.applied_analyze {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    gap: 10px;
+}
 
 .applied,
 .interview,
@@ -37,81 +77,64 @@ p {
 .rejected,
 .total_apps,
 .new-app {
+    padding: 15px;
+    text-align: center;
+    flex: 1;
+    min-width: 150px;
+    margin: 5px;
+    border-radius: 10px;
     background-color: #6bb77b;
     color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.card {
-    background-color: #6bb77b;
-    color: white;
+.btn-new-app {
+    margin: 20px;
 }
 
-.footer {
-    background-color: #428851;
+.total-apps-result {
+    margin: 20px;
+    font-size: larger;
+    font-weight: bold;
 }
-
-
-/* search button */
+/* Custom Buttons */
 .btn-custom {
     border: 1px solid white;
     color: white;
     background-color: transparent;
+    transition: background-color 0.3s;
+    padding: 8px 12px;
 }
 
 .btn-custom:hover {
     background-color: rgb(223, 127, 2);
 }
 
-
-/* apply informations divs */
-.applied_analyze {
-    display: flex;
-    justify-content: space-between;
-    border-radius: 20px;
-    margin-bottom: 20px;
-}
-
-.applied,
-.interview,
-.offer,
-.rejected,
-.total_apps,
-.new-app {
-    padding: 20px;
-    margin: 10px;
-    text-align: center;
-    border-radius: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
 .apps-count {
     display: block;
 }
 
-/* Custom styles for the profile page */
+/* Profile Container */
 .profile-container {
     max-width: 600px;
     margin: auto;
     padding: 20px;
-    border-radius: 0.25rem;
+    border-radius: 10px;
     background-color: #6bb77b;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     color: white;
 }
 
+/* Form Background */
 .form-inside {
     background-color: #172d13;
 }
 
+/* Headers */
 h1,
-h3 {
-    color: white;
-    /* Dark color for the heading */
-}
-
+h3,
 h5 {
-    margin-bottom: 15px;
-    /* Space below section headings */
+    color: white;
 }
 
 .custom-input {
@@ -121,96 +144,80 @@ h5 {
     border: 1px solid #555;
 }
 
-/* Custom styles for the search page */
-
-.search-container {
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
-    border-radius: 0.25rem;
-    background-color: #6bb77b;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    color: white;
-}
-
-/* Custom styles for the filter page */
-.filter-container {
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
-    border-radius: 0.25rem;
-    background-color: #6bb77b;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    color: white;
-}
-
-/* Custom styles for pagination */
+/* Pagination */
 .pagination {
     display: flex;
     justify-content: center;
+    gap: 10px;
     padding: 10px 0;
 }
 
-/* Custom styles for contact form */
-#contact-form {
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #6bb77b;
+/* Footer */
+.footer {
+    background-color: #428851;
+    padding: 1rem;
+    color: white;
+    text-align: center;
 }
 
-/* Media Query for tablets (max-width: 768px) and mobile devices (max-width: 576px) */
+/* Responsive Styles */
+/* Tablet: Medium screens (max-width: 768px) */
 @media (max-width: 768px) {
-    /* Adjust navbar links and brand for better spacing */
-    .navbar .nav-link, .navbar .navbar-brand {
+    .navbar .nav-link,
+    .navbar .navbar-brand {
         font-size: 0.9rem;
-        padding: 8px;
+        padding: 0.5rem;
     }
-    /* Center and resize cards for smaller screens */
-    .applied, .interview, .offer, .rejected, .total_apps, .new-app {
-        padding: 15px;
-        font-size: 0.85rem;
-    }
-    /* Reduce padding in profile and other main containers */
-    .profile-container, .search-container, .filter-container, #contact-form {
-        padding: 15px;
+    .applied_analyze,
+    .profile-container,
+    .search-container,
+    .filter-container {
+        padding: 10px;
         margin: 10px;
     }
-    .profile-container h1, .search-container h1, .filter-container h1 {
-        font-size: 1.5rem;
-    }
-    /* Resize buttons */
     .btn-custom {
-        padding: 8px 12px;
         font-size: 0.85rem;
-    }
-    /* Pagination adjustments */
-    .pagination {
-        flex-direction: column;
-        padding: 5px 0;
     }
 }
 
+/* Mobile: Small screens (max-width: 576px) */
 @media (max-width: 576px) {
-    /* Stack navbar brand and toggler */
+    /* Navbar Adjustments */
     .navbar .navbar-brand {
         font-size: 1.2rem;
     }
-    /* Adjust profile image size */
-    .profile-picture img {
-        width: 80px;
-        height: 80px;
+    .navbar .nav-link {
+        font-size: 0.8rem;
     }
-    /* Reduce padding and font sizes further */
-    .applied_analyze, .applied, .interview, .offer, .rejected, .total_apps, .new-app {
-        padding: 10px;
+
+    /* Card and Analysis Section */
+    .applied_analyze {
+        flex-direction: column;
+    }
+
+    .profile-container h1,
+    .search-container h1,
+    .filter-container h1 {
+        font-size: 1.4rem;
+    }
+    .applied,
+    .interview,
+    .offer,
+    .rejected,
+    .total_apps,
+    .new-app {
         font-size: 0.75rem;
-    }
-    .profile-container, .search-container, .filter-container, #contact-form {
         padding: 10px;
-        font-size: 0.9rem;
     }
-    h1, h3 {
-        font-size: 1.3rem;
+
+    /* Adjust Pagination Layout */
+    .pagination {
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    /* Footer */
+    .footer {
+        font-size: 0.9rem;
     }
 }
