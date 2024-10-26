@@ -100,9 +100,7 @@
         </div>
     </div>
     <main class="flex-shrink-0 main-bg">
-        {% if user.is_authenticated %}
-        <p class="text-end m-3">You are logged in as {{ user.username|title }}</p>
-        {% else %}
+        {% if not user.is_authenticated %}
         <p class="text-end m-3">You are not logged in</p>
         {% endif %}
 
@@ -125,6 +123,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
         </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Set a timeout for 5 seconds (5000 milliseconds)
+            setTimeout(function () {
+                // Get the paragraph element by ID
+                var baseTextElement = document.getElementById("base-text");
+
+                if (baseTextElement) {
+                    // Hide the paragraph element
+                    baseTextElement.style.display = "none"; // 
+                }
+            }, 5000); // 5000 milliseconds = 5 seconds
+        });
+    </script>
 </body>
 
 </html>
