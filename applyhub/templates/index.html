@@ -2,6 +2,7 @@
 {% load static %}
 {% url 'create-application' as create_application_url %}
 {% block content %}
+{% if user.is_authenticated %}
 <div class="container">
     {% if user.is_authenticated %}
     <!-- Profile Picture Section -->
@@ -38,7 +39,8 @@
         <div class="rejected">Rejected Apps <span class="apps-count">{{ rejected_apps_count }}</span>
             <a href="{% url 'filter-applications' status='Rejected' %}" class="show-interview btn btn-custom">Show</a>
         </div>
-        <div class="total_apps">Total Apps <span class="apps-count total-apps-result">{{ application_count }}</span></div>
+        <div class="total_apps">Total Apps <span class="apps-count total-apps-result">{{ application_count }}</span>
+        </div>
     </div>
     {% endif %}
     <div class="app-list">
@@ -82,4 +84,13 @@
         {% endif %}
     </div>
 </div>
+{% else %}
+<!-- Message for Unauthenticated Users -->
+<div class="container text-center py-5">
+    <h2>Welcome to ApplyWise!</h2>
+    <p>Please <a href="{% url 'account_login' %}" class="btn btn-sm btn-custom">Login</a> or <a
+            href="{% url 'account_signup' %}" class="btn btn-sm btn-custom">Register</a> to
+        start tracking your job applications.</p>
+</div>
+{% endif %}
 {% endblock %}
