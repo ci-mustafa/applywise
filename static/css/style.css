@@ -19,14 +19,11 @@ p {
 
 }
 
-.navbar-toggler-icon {
-    color: white;
-}
 
 .navbar .nav-link,
 .navbar .navbar-brand,
 .navbar-text {
-    color: white !important;
+    color: white ;
 }
 
 .app-list {
@@ -52,6 +49,7 @@ p {
 .footer {
     background-color: #428851;
 }
+
 
 /* search button */
 .btn-custom {
