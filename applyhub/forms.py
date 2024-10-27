@@ -13,7 +13,17 @@ class CreateAppForm(forms.ModelForm):
         ]
 
         widgets = {
-            'date_applied': forms.DateInput(attrs={'type': 'date'}),
+            'position': forms.TextInput(attrs={'class': 'form-control'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 6}),
+            'position_level': forms.Select(attrs={'class': 'form-select'}),
+            'company_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'date_applied': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'status': forms.Select(attrs={'class': 'form-select'}),
+            'applied_method': forms.Select(attrs={'class': 'form-select'}),
+            'location': forms.TextInput(attrs={'class': 'form-control'}),
+            'job_link': forms.URLInput(attrs={'class': 'form-control'}),
+            'recruiter_contact': forms.TextInput(attrs={'class': 'form-control'}),
+            'follow_up_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
         }
     
     
