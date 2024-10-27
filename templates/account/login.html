@@ -1,33 +1,41 @@
 {% extends "base.html" %}
-
 {% load i18n %}
 {% load account socialaccount %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
+<div class="container d-flex align-items-center justify-content-center">
+  <div class="col-md-6 col-lg-5">
+    <div class="card shadow p-4">
+      <h3 class="card-title text-center">{% trans "Sign In" %}</h3>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
-      <h3>{% trans "Sign In" %}</h3>
+      <p class="text-center">{% blocktrans %}Welcome back to ApplyWise! Please log in to track the status of your
+        applications.{% endblocktrans %}</p>
 
-      <p>{% blocktrans %}Welcome back to the ApplyWise, Please log in to track the status of your applications. If
-        you
-        have not created an account yet, then <a class="link" href="{{ signup_url }}">sign up</a>
-        first.{% endblocktrans %}</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
-      <form class="login" method="POST" action="{% url 'account_login' %}">
+      <form class="login mt-4" method="POST" action="{% url 'account_login' %}">
         {% csrf_token %}
-        {{ form.as_p }}
+
+        <!-- Render the form with Bootstrap styling -->
+        <div class="form-group">
+          {{ form.as_p }}
+        </div>
+
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <button class="btn btn-signup right" type="submit">{% trans "Sign In" %}</button>
+
+        <!-- Submit Button -->
+        <div class="d-grid gap-2">
+          <button class="btn btn-custom btn-block" type="submit">{% trans "Sign In" %}</button>
+        </div>
       </form>
+
+      <!-- Optional Footer Links or Social Login Options -->
+      <div class="text-center mt-3">
+        <p>{% trans "Don't have an account?" %} <a href="{{ signup_url }}">{% trans "Sign Up" %}</a></p>
+        <p><a href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a></p>
+      </div>
     </div>
   </div>
 </div>
