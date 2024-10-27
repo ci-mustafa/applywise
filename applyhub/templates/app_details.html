@@ -2,30 +2,48 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
-    <h1>Application Details</h1>
-    <ul>
-        <li>{{application.position}}</li>
-        <li>{{application.description}}</li>
-        <li>{{application.position_level}}</li>
-        <li>{{application.company_name}}</li>
-        <li>{{application.date_applied}}</li>
-        <li>{{application.status}}</li>
-        <li>{{application.applied_method}}</li>
-        <li>{{application.job_link}}</li>
-        <li>{{application.recruiter_contact}}</li>
-        <li>{{application.follow_up_date}}</li>
-        <li>{{application.created_on}}</li>
-    </ul>
-    <div>
-        <a href="{% url 'edit-application' pk=application.id slug=application.slug %}" class="btn btn-custom">Edit
-            App</a>
-        <!-- Button trigger delete modal -->
-        <button type="button" class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Delete App
-        </button>
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-success text-white text-center">
+            <h2>Application Details</h2>
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Position:</strong> {{ application.position }}</li>
+                <li class="list-group-item"><strong>Description:</strong> {{ application.description }}</li>
+                <li class="list-group-item"><strong>Position Level:</strong> {{ application.position_level }}</li>
+                <li class="list-group-item"><strong>Company Name:</strong> {{ application.company_name }}</li>
+                <li class="list-group-item"><strong>Date Applied:</strong> {{ application.date_applied }}</li>
+                <li class="list-group-item"><strong>Status:</strong> {{ application.status }}</li>
+                <li class="list-group-item"><strong>Applied Method:</strong> {{ application.applied_method }}</li>
+                {% if application.job_link %}
+                <li class="list-group-item"><strong>Job Link:</strong> <a href="{{ application.job_link }}"
+                        target="_blank">{{ application.job_link }}</a></li>
+                {% else %}
+                <li class="list-group-item"><strong>Job Link:</strong>This app has no job link</li>
+                {% endif %}
+                {% if application.recruiter_contact %}
+                <li class="list-group-item"><strong>Recruiter Contact:</strong> {{ application.recruiter_contact }}</li>
+                {% else %}
+                <li class="list-group-item"><strong>Recruiter Contact:</strong>This App has no recruiter contact</li>
+                {% endif %}
+                <li class="list-group-item"><strong>Follow Up Date:</strong> {{ application.follow_up_date }}</li>
+                <li class="list-group-item"><strong>Created On:</strong> {{ application.created_on }}</li>
+            </ul>
+            <div class="mt-3 d-flex justify-content-between">
+                <a href="{% url 'edit-application' pk=application.id slug=application.slug %}" class="btn btn-custom">
+                    Edit Application
+                </a>
+                <!-- Button trigger delete modal -->
+                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop">
+                    Delete Application
+                </button>
+            </div>
+        </div>
     </div>
 </div>
+
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
