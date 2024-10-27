@@ -1,22 +1,33 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="container">
-    <h1>Update Application</h1>
-    
-    <form method="POST" action="{% url 'edit-application' pk=application.id slug=application.slug%}">
-        {% csrf_token %}
-        {{ application_form.as_p }}  <!-- This will render the form fields -->
-
-        <button type="submit" class="btn btn-success">Edit Application</button>
-    </form>
-    <br>
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card p-4 shadow-lg" style="max-width: 600px; width: 100%;">
+        <h1 class="card-title text-center">Update Application</h1>
+        
+        <form method="POST" action="{% url 'edit-application' pk=application.id slug=application.slug%}">
+            {% csrf_token %}
+            
+            <!-- Render form fields with Bootstrap styling -->
+            <div class="form-group mb-3">
+                {{ application_form.as_p }}
+            </div>
+            
+            <div class="d-grid">
+                <button type="submit" class="btn btn-custom btn-block">Update Application</button>
+            </div>
+        </form>
+        
+        <!-- Displaying any messages -->
+        {% if messages %}
+            <div class="alert alert-info mt-4">
+                <ul class="mb-0">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}
