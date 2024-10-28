@@ -48,11 +48,12 @@
         {% if applications %}
         {% for app in applications %}
         <div class="card">
-            <h5 class="card-header"><strong>{{ app.position | title }}</strong></h5>
+            <h5 id="job-card-header" class="card-header"><strong>{{ app.position | title }}</strong></h5>
             <div class="card-body">
-                <h5 class="card-title">Position Level: <em>{{ app.position_level }}</em></h5>
-                <h5 class="card-title">Date Applied: <em>{{ app.date_applied|date:"d F Y" }}</em></h5>
-                <p class="card-text">Description: {{ app.description }}</p>
+                <h5><strong>Position Level: </strong><em>{{ app.position_level }}</em></h5>
+                <h5><strong>Date Applied: </strong><em>{{ app.date_applied|date:"d F Y" }}</em></h5>
+                <h5><strong>Status: </strong><em>{{ app.status }}</em></h5>
+                <p class="card-text"><strong>Description: </strong>{{ app.description }}</p>
                 <a href="{% url 'application-details' pk=app.id slug=app.slug %}" class="btn btn-custom">Job Details</a>
             </div>
         </div>
