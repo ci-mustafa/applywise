@@ -179,6 +179,20 @@ p {
     display: block;
 }
 
+/* Profile picture container */
+.profile-info {       
+    padding: 5px;               
+    box-shadow: 0px 0px 15px rgb(255, 255, 255); 
+}
+
+.profile-picture {
+    margin: 5px;
+}
+
+#index-username {
+    margin-right: 10px;
+}
+
 /* Profile form Container */
 .profile-container {
     max-width: 600px;
