@@ -3,10 +3,12 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils.text import slugify
 from django.db.models import Q
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from . import models
 from . import forms
 
 # application list view
+@login_required
 def application_list(request):
     """
     Handles the application list view for authenticated users.
@@ -74,6 +76,7 @@ def application_list(request):
                                           "applied_apps_count": applied_apps_count})
 
 # Application creation view
+@login_required
 def create_application(request):
     """View to handle the creation of a new application.
 
@@ -126,6 +129,8 @@ def application_details(request, pk, slug):
     application = get_object_or_404(models.Application, pk=pk, slug=slug)
     return render(request, "app_details.html", {"application" : application})
 
+
+@login_required
 def edit_application(request, pk, slug):
     """
     View to handle editing an existing application.
@@ -193,6 +198,7 @@ def edit_application(request, pk, slug):
         return redirect('account_login')
 
 
+@login_required
 def delete_application(request, pk, slug):
 
     """
@@ -237,6 +243,7 @@ def delete_application(request, pk, slug):
         return redirect('account_login')
 
 
+@login_required
 def search_applications(request):
 
     """
@@ -278,6 +285,7 @@ def search_applications(request):
     return render(request, 'search.html', {'applications': filtered_applications, 'query': query})
 
 
+@login_required
 def filter_interview_apps(request, status):
 
     """
