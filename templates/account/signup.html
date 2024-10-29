@@ -25,9 +25,10 @@
 
             <!-- Submit Button -->
             <button type="submit" class="btn btn-custom w-100 mt-3">{% trans "Sign Up" %} &raquo;</button>
+            <hr>
             <p class="text-center mb-4">
               {% blocktrans %}
-              Already have an account? Then please <a href="{{ login_url }}">sign in</a>.
+              Already have an account? Then please <a href="{{ login_url }}" class="btn btn-custom btn-sm">sign in</a>
               {%endblocktrans %}
             </p>
           </form>

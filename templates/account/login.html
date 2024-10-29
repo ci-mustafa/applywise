@@ -24,17 +24,19 @@
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-
+        <br>
         <!-- Submit Button -->
         <div class="d-grid gap-2">
           <button class="btn btn-custom btn-block" type="submit">{% trans "Sign In" %}</button>
         </div>
       </form>
-
+      <hr>
       <!-- Optional Footer Links or Social Login Options -->
       <div class="text-center mt-3">
-        <p>{% trans "Don't have an account?" %} <a href="{{ signup_url }}">{% trans "Sign Up" %}</a></p>
-        <p><a href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a></p>
+        <p>{% trans "Don't have an account?" %} <a href="{{ signup_url }}" class="btn btn-custom btn-sm">{% trans "SignUp" %}</a></p>
+        <br>
+        <p>{% trans "Forgotten your password? Get a new one! ==> " %} <a href="{% url 'account_reset_password' %}"
+            class="btn btn-custom btn-sm">{% trans "Reset Password" %}</a></p>
       </div>
     </div>
   </div>
