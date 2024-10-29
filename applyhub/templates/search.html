@@ -2,24 +2,28 @@
 
 {% block content %}
 <div class="container search-container">
-    <h1>Search Results for "{{ query }}"</h1>
+    <h1 class="text-center">Search Results for "{{ query }}"</h1> <!-- Centered Title -->
 
     {% if applications %}
-    <ul class="list-group">
-        {% for application in applications %}
-        <li class="list-group-item">
-            <strong>Position:</strong> {{ application.position }}<br>
-            <strong>Position Level:</strong> {{ application.position_level }}<br>
-            <strong>Status:</strong> {{ application.status }}<br>
-            <strong>Company:</strong> {{ application.company_name }}<br>
-        </li>
-        {% if applications|length > 1 %}
-        <br>
-        {% endif %}
-        {% endfor %}
-    </ul>
+    <div class="row justify-content-center"> <!-- Center the row -->
+        <div class="col-md-8"> <!-- Control the width of the column -->
+            <ul class="list-group">
+                {% for application in applications %}
+                <li class="list-group-item">
+                    <strong>Position:</strong> {{ application.position }}<br>
+                    <strong>Position Level:</strong> {{ application.position_level }}<br>
+                    <strong>Status:</strong> {{ application.status }}<br>
+                    <strong>Company:</strong> {{ application.company_name }}<br>
+                </li>
+                {% if applications|length > 1 %}
+                <br>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
     {% else %}
-    <p>No applications match your search criteria.</p>
+    <p class="text-center">No applications match your search criteria.</p> <!-- Centered message -->
     {% endif %}
 </div>
 <br>

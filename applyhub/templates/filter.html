@@ -3,21 +3,25 @@
 
 {% block content %}
 <div class="container filter-container">
-    <h1>Showing {{ status }} Applications</h1>
+    <h1 class="text-center">Showing {{ status }} Applications</h1> <!-- Centered Title -->
     {% if apps %}
-    <ul class="list-group">
-        {% for app in apps %}
-        <li class="list-group-item">
-            <strong>Position:</strong> {{ app.position }}<br>
-            <strong>Position Level:</strong> {{ app.position_level }}<br>
-            <strong>Status:</strong> {{ app.status }}<br>
-            <strong>Company:</strong> {{ app.company_name }}<br>
-        </li>
-        {% if apps|length > 1 %}
-        <br>
-        {% endif %}
-        {% endfor %}
-    </ul>
+    <div class="row justify-content-center"> <!-- Center the row -->
+        <div class="col-md-8"> <!-- Control the width of the column -->
+            <ul class="list-group">
+                {% for app in apps %}
+                <li class="list-group-item">
+                    <strong>Position:</strong> {{ app.position }}<br>
+                    <strong>Position Level:</strong> {{ app.position_level }}<br>
+                    <strong>Status:</strong> {{ app.status }}<br>
+                    <strong>Company:</strong> {{ app.company_name }}<br>
+                </li>
+                {% if apps|length > 1 %}
+                <br>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
     {% endif %}
 </div>
 <br>
