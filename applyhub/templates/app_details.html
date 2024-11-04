@@ -31,11 +31,11 @@
                 <li class="list-group-item"><strong>Created On:</strong> {{ application.created_on }}</li>
             </ul>
             <div class="mt-3 d-flex justify-content-between">
-                <a href="{% url 'edit-application' pk=application.id slug=application.slug %}" class="btn btn-custom">
+                <a href="{% url 'edit-application' pk=application.id slug=application.slug %}" class="btn btn-warning">
                     Edit Application
                 </a>
                 <!-- Button trigger delete modal -->
-                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                     data-bs-target="#staticBackdrop">
                     Delete Application
                 </button>
