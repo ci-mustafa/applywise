@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6">  <!-- Restricts width on larger screens -->
+        <div class="col-md-8 col-lg-6"> <!-- Restricts width on larger screens -->
             <div class="card shadow-sm">
                 <div class="card-header bg-success text-white text-center">
                     <h2>Create Application</h2>
@@ -11,18 +11,38 @@
                 <div class="card-body">
                     <form method="POST" action="{% url 'create-application' %}">
                         {% csrf_token %}
-                        
-                        {{ application_form.as_p }} <!-- Renders the form fields -->
-                        
+
+                        <!-- Render all fields except Follow-Up Date -->
+                        {% for field in application_form %}
+                        {% if field.name != "follow_up_date" %}
+                        <div class="mb-1">
+                            {{ field.label_tag }}
+                            {{ field }}
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+
+                        <!-- Render Follow-Up Date with Tooltip -->
+                        <div class="mb-1">
+                            <label for="id_follow_up_date">{{ application_form.follow_up_date.label }}</label>
+                            <div class="input-group">
+                                {{ application_form.follow_up_date }}
+                                <span class="input-group-text" data-bs-toggle="tooltip"
+                                    title="Set a follow-up date to remind yourself to check back on the application status.">
+                                    <i class="bi bi-info-circle"></i>Hover Me
+                                </span>
+                            </div>
+                        </div>
+
                         <button type="submit" class="btn btn-custom w-100 mt-3">Submit Application</button>
                     </form>
-                    
+
                     {% if messages %}
-                        <ul class="mt-3">
-                            {% for message in messages %}
-                                <li class="text-success">{{ message }}</li>
-                            {% endfor %}
-                        </ul>
+                    <ul class="mt-3">
+                        {% for message in messages %}
+                        <li class="text-success">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
                     {% endif %}
                 </div>
             </div>
@@ -30,4 +50,3 @@
     </div>
 </div>
 {% endblock %}
-
