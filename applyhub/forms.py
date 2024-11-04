@@ -23,10 +23,7 @@ class CreateAppForm(forms.ModelForm):
             'location': forms.TextInput(attrs={'class': 'form-control'}),
             'job_link': forms.URLInput(attrs={'class': 'form-control'}),
             'recruiter_contact': forms.TextInput(attrs={'class': 'form-control'}),
-            'follow_up_date': forms.DateInput(attrs={
-                'class': 'form-control', 
-                'type': 'date',
-                'aria-describedby': 'followUpHelp'}),
+            'follow_up_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
         }
     
     
