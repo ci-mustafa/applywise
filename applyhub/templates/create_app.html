@@ -14,13 +14,25 @@
 
                         <!-- Render all fields except Follow-Up Date -->
                         {% for field in application_form %}
-                        {% if field.name != "follow_up_date" %}
+                        {% if field.name != "follow_up_date" and field.name != "job_link" %}
                         <div class="mb-1">
                             {{ field.label_tag }}
                             {{ field }}
                         </div>
                         {% endif %}
                         {% endfor %}
+
+                        <!-- Render Job link with Tooltip -->
+                        <div class="mb-1">
+                            <label for="id_follow_up_date">{{ application_form.job_link.label }}</label>
+                            <div class="input-group">
+                                {{ application_form.job_link }}
+                                <span class="input-group-text" data-bs-toggle="tooltip"
+                                    title="Please ensure the URL starts with 'https://'.">
+                                    <i class="bi bi-info-circle"></i>Hover Me
+                                </span>
+                            </div>
+                        </div>
 
                         <!-- Render Follow-Up Date with Tooltip -->
                         <div class="mb-1">
