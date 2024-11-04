@@ -46,7 +46,7 @@ def application_list(request):
     
     # Check if the user is authenticated
     if request.user.is_authenticated:
-        applications = models.Application.objects.filter(applicant=request.user)
+        applications = models.Application.objects.filter(applicant=request.user).order_by("-date_applied")
 
 
         # Calculate the total application count
