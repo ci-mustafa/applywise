@@ -38,7 +38,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     '8000-cimustafa-applywise-8y40e6k5n32.ws.codeinstitute-ide.net',
-    "*.herokuapp.com",
+    ".herokuapp.com",
 ]
 
 
