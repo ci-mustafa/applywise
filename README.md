@@ -17,7 +17,10 @@ ApplyWise is a robust web application designed to streamline the job application
 * [First time user](#first-time-user)
 * [Registered user](#registered-user)
 * [Admin user](#admin-user)
-
+### [Design](#design-1)
+* [Color Scheme](#color-scheme)
+* [Data Model](#data-models)
+* [Database Scheme](#database-scheme)
 - - -
 ## User Experience (UX)
 
@@ -106,4 +109,46 @@ The Agile Methodology was employed to effectively prioritize and organize tasks,
 ### Admin user
 * Admin Portal: Secure login access to a centralized dashboard for managing user data and overseeing platform operations.
 * User Account Management: Admins can modify or delete user accounts if necessary, ensuring appropriate control over data.
+
+## Design
+
+The ApplyWise website features a clean, professional, and intuitive design to create a seamless user experience for job seekers. With a modern color palette that includes calm, neutral tones, the design aims to evoke a sense of focus and organization, enhancing the user’s job search journey.
+
+The navigation bar is designed to be simple and accessible, featuring a clearly marked logo and straightforward navigation options, making it easy for users to explore ApplyWise’s features. Key sections, such as the Dashboard and Application Tracker, are laid out with visual clarity, utilizing card layouts and intuitive icons to guide users through their job applications, statuses, and updates.
+
+### Color Scheme
+![Color Scheme1](static/images/readme_images/color-scheme1.png)
+![Color Scheme2](static/images/readme_images/color-scheme2.png)
+
+### Logo
+* The 'Gugi' font is specified as the Logo font.
+
+### Typography
+* The 'lato' font is specified as the primary font, and the 'sans-serif' font is specified as a fallback font.
+
+### Data Models
+1. AllAuth User Model
+    * Django Allauth, the User model is the default user model provided by the Django authentication system
+    * The User entity has a one-to-many relationship with the Application entity. This means that a User can have multiple applications, but each application is associated with only one User.
+2. Application Model
+    * The Application model stores information related to job applications,
+    including the position applied for, company details, application status, 
+    and the method of application. Each application is linked to a specific user 
+    through a foreign key relationship, allowing users to manage and track 
+    their job applications effectively.
+3. Contact Model
+    * The Contact model is used to store contact information and messages submitted
+    by users through a contact form. It includes the user's name, email address, 
+    and the content of the message they wish to send.
+
+4. About Model
+    * The About model represents the information displayed in the "About" section of the ApplyWise application. This section is designed to provide users with an introduction to the developer and the purpose of the application, enhancing transparency and engagement.
+5. ProfileImage
+    * The ProfileImage model is designed to store the profile picture of a user in the application. This model is associated with Django's default User model through a one-to-one relationship, meaning each user can have only one profile image, and each profile image is tied to exactly one user.
+
+### Database Scheme
+
+Entity Relationship Diagram (ERD)
+![DataScheme](static/images/readme_images/ERD-applywise.png)
+
 
