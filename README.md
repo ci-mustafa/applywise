@@ -21,6 +21,7 @@ ApplyWise is a robust web application designed to streamline the job application
 * [Color Scheme](#color-scheme)
 * [Data Model](#data-models)
 * [Database Scheme](#database-scheme)
+### [Security Features](#security-features-1)
 - - -
 ## User Experience (UX)
 
@@ -151,4 +152,18 @@ The navigation bar is designed to be simple and accessible, featuring a clearly 
 Entity Relationship Diagram (ERD)
 ![DataScheme](static/images/readme_images/ERD-applywise.png)
 
+## Security Features
+
+### User Authentication
+
+* Django Allauth is a popular authentication and authorization library for Django, which provides a set of features for managing user authentication, registration, and account management.
+
+### Login Decorator
+
+* application_list, create_application, edit_application, delete_application, search_applications, and filter_apps: These views involve operations related to application creation and require authentication with the login_required decorator.
+* This ensures that only authenticated users can access these views.
+
+### CSRF Protection
+
+* Django provides built-in protection against Cross-Site Request Forgery (CSRF) attacks. CSRF tokens are generated for each user session, and they are required to submit forms or perform state-changing actions. When a user logs out, the session and associated CSRF token are invalidated, making it difficult for an attacker to forge a valid request using a copied URL.
 
