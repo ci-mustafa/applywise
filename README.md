@@ -14,7 +14,6 @@ ApplyWise is a robust web application designed to streamline the job application
 * [Project Goals](#project-goals)
 * [Agile Methodology](#agile-methodology)
 * [User Stories](#user-stories)
-* [Target Audience](#target-audience)
 * [First time user](#first-time-user)
 * [Registered user](#registered-user)
 * [Admin user](#admin-user)
@@ -91,4 +90,20 @@ The Agile Methodology was employed to effectively prioritize and organize tasks,
     * As a user, I want the ability to reset my password securely, so that I can regain access to my account without complications if I forget my current password.
 * Displaying Feedback Messages
     *  provide clear and actionable feedback messages to users based on their interactions with the application.
+
+### First time user
+* Easy Navigation: A well-organized layout helps new users explore features without confusion.
+* About page: Engaging visuals and a quick guide introducing ApplyWise’s features and how they simplify the job search process.
+* Simple Registration: A straightforward sign-up process to quickly create an account and start tracking applications.
+
+### Registered User
+* Secure Login: Fast, secure login process with personalized access to their application data.
+* Job Application Management: Tools to create, edit, and delete job applications with comprehensive details.
+* Progress Tracking: Visual indicators and status updates for applications, helping users manage multiple applications with ease.
+* Search and Filter: Quickly locate specific applications by keywords or status, making it easy to stay organized and focused
+* Dashboard: An at-a-glance view of recent activities and key metrics related to the user’s job search.
+
+### Admin user
+* Admin Portal: Secure login access to a centralized dashboard for managing user data and overseeing platform operations.
+* User Account Management: Admins can modify or delete user accounts if necessary, ensuring appropriate control over data.
 
