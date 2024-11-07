@@ -8,5 +8,5 @@ urlpatterns = [
    path('edit_application/<int:pk>/<slug:slug>', views.edit_application, name="edit-application"),
    path('delete_application/<int:pk>/<slug:slug>', views.delete_application, name="delete-application"),
    path('search/', views.search_applications, name='search-applications'),
-   path('filter/<str:status>', views.filter_interview_apps, name='filter-applications'),
+   path('filter/<str:status>', views.filter_apps, name='filter-applications'),
 ]

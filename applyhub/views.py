@@ -286,7 +286,7 @@ def search_applications(request):
 
 
 @login_required
-def filter_interview_apps(request, status):
+def filter_apps(request, status):
 
     """
     View function to filter applications based on their status and the current logged-in user.
