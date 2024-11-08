@@ -30,6 +30,11 @@ ApplyWise is a robust web application designed to streamline the job application
 * [Databases Used](#databases-used)
 * [Frameworks Used](#frameworks-used)
 * [Programs Used](#programs-used)
+### [Deployment and Local developement](#deployment-and-local-developement-1)
+* [Local Developement](#local-developement)
+* [PostgreSQL Database](#postgresql-database)
+* [Cloudinary](#cloudinary)
+* [Heroku Deployment](#heroku-deployment)
 - - -
 ## User Experience (UX)
 
@@ -242,17 +247,14 @@ Entity Relationship Diagram (ERD)
 * [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 
 ### Databases Used
-
-* [ElephantSQL](https://www.elephantsql.com/) - Postgres database
+* [PostgreSQL](https://www.postgresql.org/) - Postgres database
 * [Cloudinary](https://cloudinary.com/) - Online static file storage
 
 ### Frameworks Used
-
 * [Django](https://www.djangoproject.com/) - Python framework
 * [Bootstrap 5.0.1](https://getbootstrap.com/docs/4.6/getting-started/introduction/) - CSS framework
 
 ### Programs Used
-
 * [Github](https://github.com/) - Storing the code online
 * [Gitpod](https://www.gitpod.io/) - To write the code.
 * [Heroku](https://www.heroku.com/) - Used as the cloud-based platform to deploy the site.
@@ -264,3 +266,71 @@ Entity Relationship Diagram (ERD)
 * [CSS Validation Service](https://jigsaw.w3.org/css-validator/) - Used to validate CSS
 * [CI Python Linter](https://pep8ci.herokuapp.com/#) - Used to validate Python
 * [Colormind](http://colormind.io/) - Color Scheme
+
+## Deployment and Local Developement
+
+Live deployment can be found on this [Applywise live website here](https://applywise-f12ef2315c63.herokuapp.com/)
+### Local Developement
+
+#### How to Fork
+1. Log in(or Sign Up) to Github
+2. Go to repository for this project [Applywise](https://github.com/ci-mustafa/applywise)
+3. Click the fork button in the top right corner
+#### How to Clone
+1. Log in(or Sign Up) to Github
+2. Go to repository for this project [Applywise](https://github.com/ci-mustafa/applywise)
+3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+5. Type the following command in the terminal (after the git clone you will need to paste the link you copied in step 3 above)
+6. Set up a virtual environment (this step is not required if you are using the Code Institute Template in GitPod as this will already be set up for you).
+7. Install the packages from the requirements.txt file - run Command pip3 install -r requirements.txt
+### PostgreSQL Database
+[Applywise](https://github.com/ci-mustafa/applywise) is using [PostgreSQL](https://www.postgresql.org/) Database.
+
+For the backend of this project, ApplyWise utilizes a PostgreSQL database provided by Code Institute. This database serves as the primary storage for application data, ensuring reliable and efficient data management. To connect ApplyWise to this PostgreSQL database and enable data storage functionality, simply use the provided database URL in your environment settings.
+### Cloudinary
+[Applywise](https://github.com/ci-mustafa/applywise) is using [Cloudinary](https://cloudinary.com/)
+1. For Primary interest, you can choose Programmable Media for image and video API.
+2. Optional: edit your assigned cloud name to something more memorable.
+3. On your Cloudinary Dashboard, you can copy your API Environment Variable.
+4. Be sure to remove the CLOUDINARY_URL= as part of the API value; this is the key.
+### Heroku Deployment
+* Log into [Heroku](https://www.heroku.com/) account or create an account.
+* Click the "New" button at the top right corner and select "Create New App".
+* Enter a unique application name
+* Select your region
+* Click "Create App"
+#### Prepare enviroment and settings.py
+* In your GitPod workspace, create an env.py file in the main directory.
+* Add the DATABASE_URL value and your chosen SECRET_KEY value to the env.py file.
+* Update the settings.py file to import the env.py file and add the SECRETKEY and DATABASE_URL file paths.
+* Comment out the default database configuration.
+* Save all files and make migrations.
+* Add the Cloudinary URL to env.py
+* Add the Cloudinary libraries to the list of installed apps.
+* Add the STATIC files settings - the url, storage path, directory path, root path, media url and default file storage path.
+* Link the file to the templates directory in Heroku.
+* Change the templates directory to TEMPLATES_DIR
+* Add Heroku to the ALLOWED_HOSTS list the format ['app_name.heroku.com', 'localhost']
+
+#### Add the following Config Vars in Heroku:
+
+* SECRET_KEY - This can be any Django random secret key
+* CLOUDINARY_URL - Insert your own Cloudinary API key
+* PORT = 8000
+* DISABLE_COLLECTSTATIC = 1 - this is temporary, and can be removed for the final deployment
+* DATABASE_URL - Insert your own PostgreSQL database URL here
+
+#### Heroku needs two additional files to deploy properly
+
+* requirements.txt
+* Procfile
+
+#### Deploy
+
+1. Make sure DEBUG = False in the settings.py
+2. Go to the deploy tab on Heroku and connect to GitHub, then to the required repository.
+3. Scroll to the bottom of the deploy page and either click Enable Automatic Deploys for automatic deploys or Deploy Branch to deploy manually. Manually deployed branches will need re-deploying each time the GitHub repository is updated.
+4. Click 'Open App' to view the deployed live site.
+
+
