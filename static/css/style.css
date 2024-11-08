@@ -74,7 +74,20 @@ p {
     margin-top: 20px;
 }
 
+/* iframe */
+.profile-gif {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    margin-right: 5%;
+}
 
+.giphy-embed {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border: none;
+}
 /* Card Styles */
 .card {
     background-color: #6bb77b;
