@@ -24,7 +24,7 @@ ApplyWise is a robust web application designed to streamline the job application
 ### [Security Features](#security-features-1)
 ### [Features](#features-1)
 * [Existing Features](#existing-features)
-* [Features Left to Implement](#features-left-to-implement)
+* [Upcoming Features](#upcoming-features)
 - - -
 ## User Experience (UX)
 
@@ -222,3 +222,7 @@ Entity Relationship Diagram (ERD)
 * About Page: Shares the mission and goals of ApplyWise, explaining how it empowers job seekers by enhancing their application management.
 ![About Page](static/images/readme_images/applywise-about-page.png)
 
+### Upcoming Features
+* Social Media Account Integration: Users will soon be able to create accounts and log in through social media platforms, making sign-up and login faster and easier.
+* User Interface Enhancements: Improvements to the UI for a more intuitive and visually appealing experience.
+* Email Reminders: Automated email notifications will remind users 15 days after applying to a job, helping them follow up on pending applications.
