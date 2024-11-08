@@ -173,6 +173,7 @@ Entity Relationship Diagram (ERD)
 ### Custom error pages
 
 * 404 Error Page, provides user with a button the redirect to home page.
+![Page Not Found](static/images/readme_images/applywise-pagenotfound.png)
 
 ## Features
 
