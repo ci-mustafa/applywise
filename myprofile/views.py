@@ -4,11 +4,13 @@ from django.contrib import messages
 from . import forms
 from . import models
 
+
 def profile(request, pk):
     """
     Display and update the user profile.
 
-    This view retrieves the user profile based on the provided primary key (pk).
+    This view retrieves the user profile based on the provided
+    primary key (pk).
     If the user is authenticated, it allows the user to view and update their
     profile information, including username, first name, last name, email,
     and profile image.
@@ -18,11 +20,13 @@ def profile(request, pk):
         pk (int): The primary key of the User object to be retrieved.
 
     Returns:
-        HttpResponse: Renders the profile template with user information and forms
-        or redirects to the login page if the user is not authenticated.
+        HttpResponse: Renders the profile template with
+        user information and forms or redirects to the login page if the
+        user is not authenticated.
 
     Flow:
-        - If the user is authenticated, it checks if the request method is POST.
+        - If the user is authenticated,
+          it checks if the request method is POST.
         - If POST, it processes the submitted profile and profile image forms.
         - If the forms are valid, it saves the data and redirects the user
           to their profile page with a success message.
@@ -30,13 +34,16 @@ def profile(request, pk):
           the current user's data and renders the profile template.
     """
     myprofile = get_object_or_404(User, pk=pk)
-    profile_image_instance = myprofile.image.first()  # Get the user's profile image
+    profile_image_instance = myprofile.image.first()  # Get profile image
     if request.user.is_authenticated and request.user == myprofile:
         if request.method == 'POST':
             # Initialize forms with request data
-            profile_form = forms.ProfileForm(data=request.POST, instance=myprofile)
-            profile_image_form = forms.ProfileImageForm(data=request.POST, files=request.FILES, instance=profile_image_instance)
-            
+            profile_form = forms.ProfileForm(data=request.POST,
+                                             instance=myprofile)
+            profile_image_form = forms.ProfileImageForm(data=request.POST,
+                                                        files=request.FILES,
+                                                instance=profile_image_instance)
+
             # Check if both forms are valid
             if profile_form.is_valid() and profile_image_form.is_valid():
                 profile_form.save()  # Save profile information
@@ -51,14 +58,16 @@ def profile(request, pk):
                     new_image.save()
 
                 # Add a success message to notify the user
-                messages.success(request, f"Dear {request.user}, Your profile has been successfully updated.")
-                
+                messages.success(request, f"Dear {request.user}, \
+                Your profile has been successfully updated.")
+
                 # Redirect the user to their profile page
                 return redirect('profile', pk=myprofile.id)
         else:
             # Initialize forms with existing user data
             profile_form = forms.ProfileForm(instance=myprofile)
-            profile_image_form = forms.ProfileImageForm(instance=profile_image_instance)
+            profile_image_form = forms.ProfileImageForm(
+                instance=profile_image_instance)
 
         # Render the profile template with the forms and profile data
         return render(request, 'profile.html', {
@@ -68,9 +77,6 @@ def profile(request, pk):
         })
     else:
         # Redirects to the login page if the user is not authenticated
-        messages.success(request, f"Permission Denied: You can only access your own profile.")
+        messages.success(request, f"Permission Denied: \
+            You can only access your own profile.")
         return redirect('account_login')
-
-
-
-

@@ -2,9 +2,6 @@ from django import forms
 from . import models
 
 
-from django import forms
-from . import models
-
 class ProfileForm(forms.ModelForm):
     """
     A form for updating user profile information.
@@ -28,10 +25,18 @@ class ProfileForm(forms.ModelForm):
         fields = ['username', 'first_name', 'last_name', 'email']
 
         widgets = {
-            'username': forms.TextInput(attrs={'class': 'form-control custom-input', 'placeholder': 'Username'}),
-            'first_name': forms.TextInput(attrs={'class': 'form-control custom-input', 'placeholder': 'First Name'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control custom-input', 'placeholder': 'Last Name'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control custom-input', 'placeholder': 'Email'}),
+            'username': forms.TextInput(
+                attrs={'class': 'form-control custom-input',
+                       'placeholder': 'Username'}),
+            'first_name': forms.TextInput(
+                attrs={'class': 'form-control custom-input',
+                       'placeholder': 'First Name'}),
+            'last_name': forms.TextInput(
+                attrs={'class': 'form-control custom-input',
+                       'placeholder': 'Last Name'}),
+            'email': forms.EmailInput(
+                attrs={'class': 'form-control custom-input',
+                       'placeholder': 'Email'}),
         }
 
     def __init__(self, *args, **kwargs):
@@ -40,6 +45,7 @@ class ProfileForm(forms.ModelForm):
         """
         super(ProfileForm, self).__init__(*args, **kwargs)
         self.fields['username'].help_text = None  # Remove help text
+
 
 class ProfileImageForm(forms.ModelForm):
     """
@@ -58,5 +64,6 @@ class ProfileImageForm(forms.ModelForm):
         fields = ['image']
 
         widgets = {
-            'image': forms.ClearableFileInput(attrs={'class': 'form-control-file', 'id': 'id_image'}),
+            'image': forms.ClearableFileInput(
+                attrs={'class': 'form-control-file', 'id': 'id_image'}),
         }
