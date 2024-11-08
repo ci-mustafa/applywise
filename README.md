@@ -22,6 +22,9 @@ ApplyWise is a robust web application designed to streamline the job application
 * [Data Model](#data-models)
 * [Database Scheme](#database-scheme)
 ### [Security Features](#security-features-1)
+### [Features](#features-1)
+* [Existing Features](#existing-features)
+* [Features Left to Implement](#features-left-to-implement)
 - - -
 ## User Experience (UX)
 
@@ -170,4 +173,51 @@ Entity Relationship Diagram (ERD)
 ### Custom error pages
 
 * 404 Error Page, provides user with a button the redirect to home page.
+
+## Features
+
+* ApplyWise is a robust web application that simplifies job application management, providing users with an intuitive platform to stay organized and improve their job search outcomes.
+
+### Existing Features
+* Secure registration, login, and logout functionalities ensure that users have private and convenient access to their data.
+* * Account Creation Page
+![Account Creation Page](static/images/readme_images/applywise-registration.png)
+* * Logout Confirmation Page
+![Logout Confirmation Page](static/images/readme_images/applywise-logout.png)
+* * Login Page
+![Login Page](static/images/readme_images/applywise-login.png)
+
+* Application Tracking: A centralized dashboard enables users to track the progress of all applications in one place, keeping them updated on status changes.
+![Centralized Dashboard](static/images/readme_images/applywise-dashboard.png)
+
+* Application Management: Users can create, update, and delete applications, including detailed information about positions, companies, and statuses.
+* * Create Application
+![Application Creation](static/images/readme_images/applywise-create-app.png)
+* * Edit Application
+![Edit Application](static/images/readme_images/applywise-update-app.png)
+* * Delete Application
+![Edit Application](static/images/readme_images/applywise-delete-app.png)
+
+* Password Recovery: A "Forgot Password" option helps users quickly reset their passwords, allowing easy re-entry in case of forgotten credentials.
+![Password Recovery](static/images/readme_images/applywise-password-recovery.png)
+
+* Search, Filter, and Pagination: Users can efficiently locate applications with keyword search, filter by status (e.g., applied, interview, offered, rejected), and use pagination to browse applications with ease.
+* * Search Apps
+![Search Apps](static/images/readme_images/applywise-search.png)
+* * Filter Apps
+![Filter Apps](static/images/readme_images/applywise-filter1.png)
+![Filter Apps](static/images/readme_images/applywise-filter2.png)
+* * Pagination
+![Pagination-1](static/images/readme_images/applywise-pagination1.png)
+![Pagination-2](static/images/readme_images/applywise-pagination2.png)
+* Profile Customization: Personalize profiles with relevant details.
+![Profile](static/images/readme_images/applywise-profile.png)
+* Feedback Messages: Real-time feedback messages keep users informed of completed actions, such as updates and deletions.
+![Feedback Message 1](static/images/readme_images/applywise-m1.png)
+![Feedback Message 2](static/images/readme_images/applywise-m2.png)
+![Feedback Message 3](static/images/readme_images/applywise-m3.png)
+* Contact Page: Users can reach out for support or feedback using a contact form for timely assistance from the ApplyWise team.
+![Contact Page](static/images/readme_images/applywise-contact-page.png)
+* About Page: Shares the mission and goals of ApplyWise, explaining how it empowers job seekers by enhancing their application management.
+![About Page](static/images/readme_images/applywise-about-page.png)
 
