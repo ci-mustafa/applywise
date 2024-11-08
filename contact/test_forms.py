@@ -1,6 +1,7 @@
 from django.test import TestCase
 from .forms import ContactForm
 
+
 class TestContactForm(TestCase):
     """
     Test suite for the ContactForm class to ensure proper validation and
@@ -24,7 +25,7 @@ class TestContactForm(TestCase):
             "message": "This is a message..."
         })
         self.assertTrue(contact_form.is_valid(), msg="Form is not valid")
-    
+
     def test_form_is_not_valid(self):
         """
         Test that the form is invalid when no data is provided.
@@ -56,7 +57,9 @@ class TestContactForm(TestCase):
             'email': 'invalid-email-format',
             'message': "This is a message..."
         })
-        self.assertFalse(contact_form.is_valid(), msg="Form should be invalid with an incorrect email format")
+        self.assertFalse(contact_form.is_valid(),
+                         msg="Form should be invalid with an \
+                         incorrect email format")
         self.assertIn('email', contact_form.errors)
 
     def test_name_too_long(self):
@@ -72,7 +75,9 @@ class TestContactForm(TestCase):
             'email': "mustafa@gmail.com",
             'message': "This is a message..."
         })
-        self.assertFalse(contact_form.is_valid(), msg="Form should be invalid with a name that's too long")
+        self.assertFalse(contact_form.is_valid(),
+                         msg="Form should be invalid with a \
+                         name that's too long")
         self.assertIn('name', contact_form.errors)
 
     def test_valid_email_format(self):
@@ -87,5 +92,7 @@ class TestContactForm(TestCase):
             'email': "mustafa@gmail.com",
             'message': "This is a valid message."
         })
-        self.assertTrue(contact_form.is_valid(), msg="Form should be valid with a proper email format")
+        self.assertTrue(contact_form.is_valid(),
+                        msg="Form should be valid with a \
+                        proper email format")
 

@@ -60,7 +60,7 @@ def contact(request):
             try:
                 email.send(fail_silently=False)  # Send the email
                 messages.success(request,
-                f"Dear {contact_form.cleaned_data['name']}, your message has been sent successfully!")
+                f"Dear {contact_form.cleaned_data['name']}, message sent!")
                 return redirect('contact')  
             except Exception as e:
                 messages.error(request, f"An error occurred: {str(e)}")
