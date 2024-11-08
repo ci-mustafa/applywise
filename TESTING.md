@@ -162,4 +162,52 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 ### Python
 
 #### applyhub App
+<details>
+<summary> admin.py
+</summary>
+
+![admin.py](static/images/testing_images/testing-applyhub-admin.png)
+</details>
+
+<details>
+<summary> views.py
+</summary>
+
+![views.py](static/images/testing_images/testing-applyhub-view.png)
+</details>
+
+<details>
+<summary> models.py
+</summary>
+
+![models.py](static/images/testing_images/testing-applyhub-model.png)
+</details>
+
+<details>
+<summary> urls.py
+</summary>
+
+![urls.py](static/images/testing_images/testing-applyhub-urls.png)
+</details>
+
+<details>
+<summary> forms.py
+</summary>
+
+![forms.py](static/images/testing_images/testing-applyhub-form.png)
+</details>
+
+<details>
+<summary> test_forms.py
+</summary>
+
+![test_forms.py](static/images/testing_images/testing-applyhub-form-test.png)
+</details>
+
+<details>
+<summary> test_views.py
+</summary>
+
+![test_views.py](static/images/testing_images/testing-applyhub-view-test.png)
+</details>
 
