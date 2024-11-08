@@ -270,6 +270,7 @@ Entity Relationship Diagram (ERD)
 * [W3C Markup Validation Service](https://validator.w3.org/) - Used to validate HTML
 * [CSS Validation Service](https://jigsaw.w3.org/css-validator/) - Used to validate CSS
 * [CI Python Linter](https://pep8ci.herokuapp.com/#) - Used to validate Python
+* [JSHint](https://jshint.com/) - Used to validate JavaScript
 * [Colormind](http://colormind.io/) - Color Scheme
 
 ## Deployment and Local Developement

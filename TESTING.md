@@ -13,6 +13,7 @@ Comprehensive testing has been performed to ensure the website's seamless and op
 * [CSS Validation](#css-validation)
 * [JavaScript Validation](#javascript-validation)
 * [Python](#python)
+### [Automated Testing](#automated-testing-1)
 ---
 
 ## Responsiveness Testing
@@ -211,3 +212,7 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 ![test_views.py](static/images/testing_images/testing-applyhub-view-test.png)
 </details>
 
+##### Note:
+The code for the Contact, About, and MyProfile apps has been thoroughly reviewed and refactored to comply with the PEP8 standards, ensuring consistent and readable code throughout these modules.
+
+## Automated Testing
