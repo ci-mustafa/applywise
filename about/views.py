@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from . import models
 
+
 def about(request):
     """
     Render the 'About' page with application information.
