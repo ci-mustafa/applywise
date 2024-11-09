@@ -21,7 +21,8 @@
         <h3 id="index-username" class="ms-auto">Greetings, {{ user.username|title }}! Your dashboard awaits your next
             steps.</h3>
         <div class="profile-gif ms-3">
-            <iframe src="https://giphy.com/embed/lls6mUt3l6sk0cnI8k" class="giphy-embed" allowFullScreen></iframe>
+            <iframe src="https://giphy.com/embed/lls6mUt3l6sk0cnI8k" alt="GIF showing Get A Job!" class="giphy-embed"
+                allowFullScreen></iframe>
         </div>
     </div>
 
@@ -30,7 +31,8 @@
     {% if user.is_authenticated %}
     <div class="applied_analyze">
         <div class="new-app">
-            <a href="{% url 'create-application' %}" class="btn btn-custom btn-new-app">New App</a>
+            <a href="{% url 'create-application' %}" class="btn btn-custom btn-new-app"
+                aria-label="Create new application">New App</a>
         </div>
         {% if applied_apps_count == 0 %}
         <div class="applied">Applied Apps <span class="apps-count">{{ applied_apps_count }}</span>
@@ -38,7 +40,8 @@
         </div>
         {% else %}
         <div class="applied">Applied Apps <span class="apps-count">{{ applied_apps_count }}</span>
-            <a href="{% url 'filter-applications' status='Applied' %}" class="show-interview btn btn-custom">Show</a>
+            <a href="{% url 'filter-applications' status='Applied' %}" class="show-interview btn btn-custom"
+                aria-label="View your applied applications">Show</a>
         </div>
         {% endif %}
         {% if interview_apps_count == 0 %}
@@ -47,7 +50,8 @@
         </div>
         {% else %}
         <div class="interview">Interview Apps <span class="apps-count">{{ interview_apps_count }}</span>
-            <a href="{% url 'filter-applications' status='Interview' %}" class="show-interview btn btn-custom">Show</a>
+            <a href="{% url 'filter-applications' status='Interview' %}" class="show-interview btn btn-custom"
+                aria-label="View your interview applications">Show</a>
         </div>
         {% endif %}
         {% if offered_apps_count == 0 %}
@@ -56,7 +60,8 @@
         </div>
         {% else %}
         <div class="offer">Offered Apps <span class="apps-count">{{ offered_apps_count }}</span>
-            <a href="{% url 'filter-applications' status='Offer' %}" class="show-interview btn btn-custom">Show</a>
+            <a href="{% url 'filter-applications' status='Offer' %}" class="show-interview btn btn-custom"
+                aria-label="View your offered applications">Show</a>
         </div>
         {% endif %}
         {% if rejected_apps_count == 0 %}
@@ -65,7 +70,8 @@
         </div>
         {% else %}
         <div class="rejected">Rejected Apps <span class="apps-count">{{ rejected_apps_count }}</span>
-            <a href="{% url 'filter-applications' status='Rejected' %}" class="show-interview btn btn-custom">Show</a>
+            <a href="{% url 'filter-applications' status='Rejected' %}" class="show-interview btn btn-custom"
+                aria-label="View your rejected applications">Show</a>
         </div>
         {% endif %}
         <div class="total_apps">Total Apps <span class="apps-count total-apps-result">{{ application_count }}</span>
@@ -83,7 +89,8 @@
                 <h5><strong>Date Applied: </strong><em>{{ app.date_applied|date:"d F Y" }}</em></h5>
                 <h5><strong>Status: </strong><em>{{ app.status }}</em></h5>
                 <p class="card-text"><strong>Description: </strong>{{ app.description }}</p>
-                <a href="{% url 'application-details' pk=app.id slug=app.slug %}" class="btn btn-custom">Job Details</a>
+                <a href="{% url 'application-details' pk=app.id slug=app.slug %}" class="btn btn-custom"
+                    aria-label="Job details">Job Details</a>
             </div>
         </div>
         <br>
@@ -92,8 +99,9 @@
         <nav class="pagination" aria-label="Page navigation">
             <span class="step-links">
                 {% if applications.has_previous %}
-                <a class="btn btn-custom" href="?page=1">&laquo; first</a>
-                <a class="btn btn-custom" href="?page={{ applications.previous_page_number }}">previous</a>
+                <a class="btn btn-custom" href="?page=1" aria-label="First page">&laquo; first</a>
+                <a class="btn btn-custom" href="?page={{ applications.previous_page_number }}"
+                    aria-label="Previous page">previous</a>
                 {% endif %}
 
                 <span class="current">
@@ -101,8 +109,10 @@
                 </span>
 
                 {% if applications.has_next %}
-                <a class="btn btn-custom" href="?page={{ applications.next_page_number }}">next</a>
-                <a class="btn btn-custom" href="?page={{ applications.paginator.num_pages }}">last &raquo;</a>
+                <a class="btn btn-custom" href="?page={{ applications.next_page_number }}"
+                    aria-label="Next page">next</a>
+                <a class="btn btn-custom" href="?page={{ applications.paginator.num_pages }}"
+                    aria-label="Last page">last &raquo;</a>
                 {% endif %}
             </span>
         </nav>
@@ -118,8 +128,9 @@
 <!-- Message for Unauthenticated Users -->
 <div class="container text-center py-5">
     <h2>Welcome to ApplyWise!</h2>
-    <p>Please <a href="{% url 'account_login' %}" class="btn btn-sm btn-custom">Login</a> or <a
-            href="{% url 'account_signup' %}" class="btn btn-sm btn-custom">Register</a> to
+    <p>Please <a href="{% url 'account_login' %}" class="btn btn-sm btn-custom"
+            aria-label="Login to your account">Login</a> or <a href="{% url 'account_signup' %}"
+            class="btn btn-sm btn-custom" aria-label="Signup an account">Register</a> to
         start tracking your job applications.</p>
 </div>
 {% endif %}

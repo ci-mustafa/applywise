@@ -14,7 +14,8 @@
                     <strong>Position Level:</strong> {{ app.position_level }}<br>
                     <strong>Status:</strong> {{ app.status }}<br>
                     <strong>Company:</strong> {{ app.company_name }}<br>
-                    <a href="{% url 'application-details' pk=app.id slug=app.slug %}" class="btn btn-success">Job
+                    <a href="{% url 'application-details' pk=app.id slug=app.slug %}" class="btn btn-success"
+                        aria-label="Job details">Job
                         Details</a>
                 </li>
                 {% if apps|length > 1 %}

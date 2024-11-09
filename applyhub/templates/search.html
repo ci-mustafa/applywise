@@ -15,7 +15,7 @@
                     <strong>Status:</strong> {{ application.status }}<br>
                     <strong>Company:</strong> {{ application.company_name }}<br>
                     <a href="{% url 'application-details' pk=application.id slug=application.slug %}"
-                        class="btn btn-success">Job
+                        class="btn btn-success" aria-label="Job details">Job
                         Details</a>
                 </li>
                 {% if applications|length > 1 %}

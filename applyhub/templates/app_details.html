@@ -18,7 +18,7 @@
                 <li class="list-group-item"><strong>Applied Method:</strong> {{ application.applied_method }}</li>
                 {% if application.job_link %}
                 <li class="list-group-item"><strong>Job Link:</strong> <a href="{{ application.job_link }}"
-                        target="_blank">{{ application.job_link }}</a></li>
+                        target="_blank" aria-label="Link to job">{{ application.job_link }}</a></li>
                 {% else %}
                 <li class="list-group-item"><strong>Job Link:</strong>This app has no job link</li>
                 {% endif %}
@@ -31,7 +31,7 @@
                 <li class="list-group-item"><strong>Created On:</strong> {{ application.created_on }}</li>
             </ul>
             <div class="mt-3 d-flex justify-content-between">
-                <a href="{% url 'edit-application' pk=application.id slug=application.slug %}" class="btn btn-warning">
+                <a href="{% url 'edit-application' pk=application.id slug=application.slug %}" class="btn btn-warning" aria-label="Link to edit application">
                     Edit Application
                 </a>
                 <!-- Button trigger delete modal -->
