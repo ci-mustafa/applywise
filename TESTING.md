@@ -19,6 +19,7 @@ Comprehensive testing has been performed to ensure the website's seamless and op
 * [About App Testing Views](#about-app-testing-views)
 * [Contact App Testing Forms](#contact-app-testing-forms)
 * [Contact App Testing views](#contact-app-testing-views)
+### [Lighthouse Report](#lighthouse-report-1)
 ---
 
 ## Responsiveness Testing
@@ -280,3 +281,6 @@ Validates the email subject, content, and sender address, ensuring accurate and 
 * Success Message and Redirection:
 Confirms that a success message is displayed after a successful form submission.
 Ensures that the user is redirected back to the contact page, providing a smooth user experience.
+
+## Lighthouse Report
+
