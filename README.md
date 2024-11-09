@@ -358,5 +358,3 @@ Please see  [TESTING.md](TESTING.md) for all the detailed testing performed.
 
 * I would like to thank my mentor for support and feedback throughout this project, Mitko Bachvarov.
 * I would also like to extend my appreciation to the Slack community for their continuous engagement and willingness to share knowledge. The collaborative environment provided a platform for learning, troubleshooting, and gaining inspiration from fellow developers.
-
-

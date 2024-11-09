@@ -283,4 +283,86 @@ Confirms that a success message is displayed after a successful form submission.
 Ensures that the user is redirected back to the contact page, providing a smooth user experience.
 
 ## Lighthouse Report
+<details>
+<summary> Home Page pc
+</summary>
 
+![Home Page pc](static/images/lighhouse/home-pc.png)
+</details>
+
+<details>
+<summary> Home Page mobile
+</summary>
+
+![Home Page mobile](static/images/lighhouse/home-mobile.png)
+</details>
+
+<details>
+<summary> Myprofile Page pc
+</summary>
+
+![Myprofile Page pc](static/images/lighhouse/myprofile-pc.png)
+</details>
+
+<details>
+<summary> Myprofile Page mobile
+</summary>
+
+![Myprofile Page mobile](static/images/lighhouse/myprofile-mobile.png)
+</details>
+
+<details>
+<summary> Contact Page pc
+</summary>
+
+![Contact Page pc](static/images/lighhouse/contact-pc.png)
+</details>
+
+<details>
+<summary> Contact Page mobile
+</summary>
+
+![Contact Page mobile](static/images/lighhouse/contact-mobile.png)
+</details>
+
+<details>
+<summary> About Page pc
+</summary>
+
+![About Page pc](static/images/lighhouse/about-pc.png)
+</details>
+
+<details>
+<summary> About Page mobile
+</summary>
+
+![About Page mobile](static/images/lighhouse/about-mobile.png)
+</details>
+
+<details>
+<summary> Login Page pc
+</summary>
+
+![Login Page pc](static/images/lighhouse/login-pc.png)
+</details>
+
+<details>
+<summary> Login Page mobile
+</summary>
+
+![Login Page mobile](static/images/lighhouse/login-mobile.png)
+</details>
+
+<details>
+<summary> Signup Page pc
+</summary>
+
+![Signup Page pc](static/images/lighhouse/signup-pc.png)
+</details>
+
+<details>
+<summary> Signup Page mobile
+</summary>
+
+![Signup Page mobile](static/images/lighhouse/signup-mobile.png)
+</details>
