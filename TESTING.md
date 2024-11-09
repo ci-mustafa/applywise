@@ -216,3 +216,23 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 The code for the Contact, About, and MyProfile apps has been thoroughly reviewed and refactored to comply with the PEP8 standards, ensuring consistent and readable code throughout these modules.
 
 ## Automated Testing
+### Applyhub app testing forms
+The application form tests are designed to ensure that the CreateAppForm in the application works as expected, handling both required and optional fields correctly. These tests validate the form under two main conditions:
+
+* Valid Data with Optional Fields Left Blank:
+Tests that the form is valid even when optional fields (description, job_link, and recruiter_contact) are left blank, as long as the required fields have valid data. This test confirms that users can submit the form without filling optional information while still meeting the required input criteria.
+
+* Valid Data with All Fields Filled:
+Checks form validity when all fields, both required and optional, contain appropriate data. This ensures that the form accepts fully completed entries, providing flexibility for users to supply additional details if available.
+
+### Applyhub app testing views
+This test suite is designed to verify the functionality of views within the ApplyHub application, specifically focusing on the application list view and the application creation process. Below is a breakdown of the tests included:
+
+* Application List View Tests:
+Ensures that authenticated users can view their list of applications, with all relevant application data appearing correctly on the page.
+Tests that unauthenticated users attempting to access the application list are redirected to the login page, maintaining the security of user-specific data.
+
+* Create Application View Tests:
+Verifies that users can successfully create new applications via a POST request, confirming that valid form data creates an Application instance in the database.
+Checks that all submitted fields (required and optional) are correctly saved and linked to the logged-in user.
+Ensures that after a successful creation, the user is redirected to the home page, improving the user flow.
