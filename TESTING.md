@@ -21,8 +21,8 @@ Comprehensive testing has been performed to ensure the website's seamless and op
 * [Contact App Testing views](#contact-app-testing-views)
 ### [Lighthouse Report](#lighthouse-report-1)
 ### [Bugs](#bugs-1)
-* [Resolved Bugs](#resolved-bugs)
-* [Unresolved Bugs](#unresolved-bug)
+* [Solved Bugs](#solved-bugs)
+* [Unsolved Bugs](#unsolved-bug)
 ### [Features Testing](#features-testing-1)
 ---
 
@@ -362,13 +362,13 @@ Ensures that the user is redirected back to the contact page, providing a smooth
 
 ## Bugs
 
-### Resolved Bugs
+### Solved Bugs
 #### Ensure Users Can Only View Their Own Profile Details
 * This fix ensures that each user can only view and access their own profile details. Previously, there was no check to prevent users from accessing other users' profiles, which could lead to unauthorized access.
 #### What was fixed
 * Authentication Check: The user must be authenticated to access any profile page.
 * Ownership Check: A user can only view their own profile page and not those of other users, thereby securing the profile data.
-### Unresolved Bug
+### Unsolved Bug
 #### Bug Description: Default Profile Picture Not Displayed After Profile Update Without Image Upload
 * Issue: When a user creates an account and logs in for the first time, a default profile picture is shown. However, if the user updates their profile data (such as the username or name) without uploading a new profile picture, upon refreshing the page, the default profile picture is not displayed anymore. Instead, the page shows an empty profile image or fails to load the default image correctly.
 
