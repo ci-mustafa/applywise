@@ -23,6 +23,7 @@ Comprehensive testing has been performed to ensure the website's seamless and op
 ### [Bugs](#bugs-1)
 * [Resolved Bugs](#resolved-bugs)
 * [Unresolved Bugs](#unresolved-bug)
+### [Features Testing](#features-testing-1)
 ---
 
 ## Responsiveness Testing
@@ -370,3 +371,33 @@ Ensures that the user is redirected back to the contact page, providing a smooth
 ### Unresolved Bug
 #### Bug Description: Default Profile Picture Not Displayed After Profile Update Without Image Upload
 * Issue: When a user creates an account and logs in for the first time, a default profile picture is shown. However, if the user updates their profile data (such as the username or name) without uploading a new profile picture, upon refreshing the page, the default profile picture is not displayed anymore. Instead, the page shows an empty profile image or fails to load the default image correctly.
+
+## Features Testing
+| Page          | User Action   | Expected Result  | Notes            |
+|---------------|---------------|------------------|------------------|
+| Home Page     |               |                  |                  |
+|               | Click on Logo | Redirect to Home Page | PASS        |
+|               | Click on Sign Up button | Redirect to Sign Up page | PASS |
+|               | Click on Sign in button | Redirect to Home page, logged in | PASS |
+|               | Click on Reset password button | Redirect to password reset page | PASS |
+|               | Click on About (Navigation bar) | Redirect to about page | PASS |
+|               | Click on Register (Navigation bar) | Redirect to Sign Up page  | PASS |
+|               | Click on Contact (Navigation bar) | Redirect to Contact page | PASS |
+|               | Click on Login (Navigation bar) | Redirect to Login page | PASS |
+| Home Page (Logged In - User)  |                 |          |  |
+|               | After Login | A feedback message | PASS |
+|               | Click on Logo | Redirect to Home Page | PASS        |
+|               | Click on Home (Navigation bar) | Redirect to Home Page | PASS |
+|               | Click on Logout (Navigation bar) | Redirect to logout page | PASS |
+|               | Click on Myprofile (Navigation bar) | Redirect to profile page | PASS |
+|               | Click on Contact (Navigation bar) | Redirect to Contact page | PASS |
+|               | Click on About (Navigation bar) | Redirect to about page | PASS |
+|               | Click on Search input (Navigation bar) | Type keyword to search app | PASS |
+|               | Click on Search button (Navigation bar) | Find app based on input keyword | PASS |
+|               | Click on New app button | Redirect to create application page | PASS |
+|               | Click on Show button | Show apps based on filter | PASS |
+|               | Click on Job details button of apps | Redirect to application details page | PASS |
+|               | Click on Next button of pagination | Redirect to the next page | PASS |
+|               | Click on Previous button of pagination | Redirect to the Previous page | PASS |
+|               | Click on Last button of pagination | Redirect to the Last page | PASS |
+|               | Click on First button of pagination | Redirect to the First page | PASS |
