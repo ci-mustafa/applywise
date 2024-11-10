@@ -401,3 +401,27 @@ Ensures that the user is redirected back to the contact page, providing a smooth
 |               | Click on Previous button of pagination | Redirect to the Previous page | PASS |
 |               | Click on Last button of pagination | Redirect to the Last page | PASS |
 |               | Click on First button of pagination | Redirect to the First page | PASS |
+| Myprofile page    |               |                  |                  |
+|               | Click on Choose file | Select an profile image | PASS |
+|               | Click on Edit profile | Redirect to profile page, Update profile informatoin, alert message | PASS |
+| Contact page    |               |                  |                  |
+|               | Click on Send message (after filling the form) | Admin of the application will receive an email | PASS |
+| Create application page    |               |                  |                  |
+|               | Click on Submit application (after filling the form) |Redirect to home page, Create a new app, alert message of new app creation | PASS |
+| Application details page    |               |                  |                  |
+|               | Click on Edit application button | Redirec to edit application page | PASS |
+|               | Click on Delete application button | Show modal for delete confirmation | PASS |
+| Edit application page    |               |                  |                  |
+|    | Click on update application button | Update application, Redirect to home page, alert message | PASS |
+| Delete Modal confirmation|              |                  |                  |
+|    | Click on No button | Redirect to application details page | PASS |
+|    | Click on Delete button | Redirect to home page, application deleted, confirmation alert message | PASS |
+| 404 Error Page |  |    |    |
+|               | Type in URL that does not exists | Custom 404 Error page is displayed | PASS |
+|               | Click on Back to Home button | Redirect to Home page | PASS |
+
+Return to [README](README.md)
+
+
+
+
